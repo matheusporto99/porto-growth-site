@@ -1,0 +1,481 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Porto Growth &amp; Performance — Aquisição de pacientes particulares</title>
+<meta name="description" content="Assessoria de aquisição de pacientes particulares para médicos: tráfego, atendimento e rastreio até o faturamento.">
+<link rel="icon" href="logo-cores.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+<!-- ===================== CONFIG ===================== -->
+<script>
+  window.PORTO = {
+    WEBHOOK_URL: "",          // ex.: https://seu-n8n.com/webhook/lp-medicos  (vazio = só redireciona pro WhatsApp)
+    WHATSAPP: "5575900000000",// DDI+DDD+número, só dígitos
+    META_PIXEL_ID: ""         // ex.: 123456789012345  (vazio = pixel desligado)
+  };
+</script>
+<!-- ================================================== -->
+
+<script>
+  (function(){
+    var id = window.PORTO.META_PIXEL_ID; if(!id) return;
+    !function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}(window,document,'script','https://connect.facebook.net/en_US/fbevents.js');
+    fbq('init', id); fbq('track', 'PageView');
+  })();
+</script>
+
+<style>
+:root{
+  --aub:#450A34; --aub-d:#2E0623; --coral:#FF6F45; --coral-d:#B8472A;
+  --steel:#4C7A88; --graph:#2B2B2B; --mist:#EFEFEF; --bg:#FAF7F5;
+  --mute:#E3D3DC; --serif:'Instrument Serif',Georgia,serif;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;font-family:Inter,system-ui,sans-serif;background:var(--bg);color:var(--graph);-webkit-font-smoothing:antialiased}
+img{max-width:100%;display:block}
+a{color:inherit}
+.wrap{max-width:1200px;margin:0 auto;padding:0 24px}
+.eyebrow{font-size:13px;letter-spacing:.16em;font-weight:600;text-transform:uppercase;color:var(--coral-d)}
+.dark .eyebrow{color:var(--coral)}
+h1,h2,h3{margin:0}
+h1,h2{font-family:var(--serif);font-weight:400;letter-spacing:-.01em}
+h2{font-size:clamp(34px,4.4vw,52px);line-height:1.08}
+p{margin:0}
+.btn{display:inline-flex;align-items:center;justify-content:center;min-height:56px;padding:0 32px;border-radius:10px;border:0;font:inherit;font-size:15px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;text-decoration:none;cursor:pointer;transition:transform .15s,background .15s}
+.btn:hover{transform:translateY(-1px)}
+.btn-coral{background:var(--coral);color:var(--aub-d)}
+.btn-coral:hover{background:#FF8A66}
+.btn-aub{background:var(--aub-d);color:#fff}
+.dark{background:var(--aub-d);color:#fff}
+section{padding:96px 0}
+.ph{border-radius:20px;border:1px dashed rgba(0,0,0,.2);background:var(--mist);display:flex;align-items:center;justify-content:center;text-align:center;padding:32px;color:#6b6b6b;font-size:15px;line-height:1.5}
+.dark .ph{background:var(--aub);border-color:rgba(255,255,255,.3);color:#C9B6C1}
+
+/* header / hero */
+.top{display:flex;justify-content:space-between;align-items:center;padding:32px 0 56px}
+.top img{height:40px;width:auto}
+.top .ghost{padding:12px 22px;border:1px solid rgba(255,255,255,.35);border-radius:999px;text-decoration:none;font-size:14px;font-weight:500;background:none;color:#fff;cursor:pointer;font-family:inherit}
+.hero{padding:0 0 96px}
+.hero-grid{display:grid;grid-template-columns:1.1fr .9fr;gap:64px;align-items:center}
+.hero h1{font-size:clamp(40px,5.2vw,64px);line-height:1.04;margin:22px 0 14px}
+.hero .kicker{font-family:var(--serif);font-style:italic;font-size:clamp(30px,3.4vw,44px);color:var(--coral);line-height:1.1}
+.checks{list-style:none;margin:28px 0 36px;padding:0;display:flex;flex-direction:column;gap:14px;font-size:18px;line-height:1.45;color:#EDE3E9}
+.checks li{display:flex;gap:12px}
+.checks svg{flex-shrink:0;margin-top:3px}
+.cta-row{display:flex;gap:18px;align-items:center;flex-wrap:wrap}
+.cta-row span{font-size:14px;color:#C9B6C1}
+.hero .ph{min-height:560px}
+
+.strip{background:var(--aub);color:#fff;padding:36px 0}
+.strip .wrap{display:grid;grid-template-columns:repeat(4,1fr);gap:28px}
+.strip b{display:block;font-family:var(--serif);font-weight:400;font-size:40px;line-height:1}
+.strip span{font-size:14px;color:#D9C6D1}
+
+.head{max-width:760px;display:flex;flex-direction:column;gap:14px;margin-bottom:48px}
+.grid3{display:grid;grid-template-columns:repeat(3,1fr);gap:24px}
+.test{background:#fff;border:1px solid #E6DEE2;border-radius:16px;padding:28px;display:flex;flex-direction:column;gap:22px;margin:0}
+.test .ph{min-height:200px;border-radius:10px}
+.test blockquote{margin:0;font-size:17px;line-height:1.55;color:#3a3a3a}
+.test figcaption b{display:block;color:var(--aub-d)}
+.test figcaption span{font-size:14px;color:#6b6b6b}
+
+.anam{background:var(--mist);border-radius:24px;padding:64px;display:grid;grid-template-columns:1fr 1fr;gap:56px;align-items:center}
+.anam h2{color:var(--aub-d);font-size:clamp(32px,4vw,48px);margin:16px 0}
+.anam p{font-size:18px;line-height:1.6;color:#3a3a3a}
+.rows{display:flex;flex-direction:column;gap:12px}
+.rows div{background:#fff;border-radius:12px;padding:20px 24px;display:flex;justify-content:space-between;gap:16px;font-size:16px}
+.rows b{color:var(--steel);font-weight:600}
+
+.card{background:var(--aub);border-radius:16px;padding:34px;display:flex;flex-direction:column;gap:14px}
+.card .n{font-family:var(--serif);font-size:40px;color:var(--coral);line-height:1}
+.card h3{font-size:21px;font-weight:600}
+.card p{font-size:16px;line-height:1.6;color:var(--mute)}
+.card.cta{background:var(--coral);color:var(--aub-d);justify-content:space-between}
+.card.cta h3{font-family:var(--serif);font-weight:400;font-size:32px;line-height:1.1}
+
+.split{display:grid;grid-template-columns:1fr 1fr;gap:64px;align-items:center}
+.split .ph{min-height:440px}
+.split h2{color:var(--aub-d);margin:16px 0}
+.split p{font-size:18px;line-height:1.6;color:#3a3a3a}
+
+.scar{background:var(--aub);color:#fff;border-radius:24px;padding:80px 32px;text-align:center;display:flex;flex-direction:column;align-items:center;gap:22px}
+.scar h2{max-width:880px}
+.scar p{max-width:640px;font-size:18px;line-height:1.6;color:var(--mute)}
+
+footer{background:var(--aub-d);color:#C9B6C1;padding:48px 0;font-size:14px}
+footer .wrap{display:flex;justify-content:space-between;gap:24px;flex-wrap:wrap}
+footer img{height:34px;width:auto}
+footer .r{display:flex;flex-direction:column;gap:6px;text-align:right}
+
+/* modal quiz */
+.modal{position:fixed;inset:0;background:rgba(30,4,22,.72);display:none;align-items:flex-start;justify-content:center;padding:32px 16px;overflow-y:auto;z-index:50}
+.modal.open{display:flex}
+.box{width:100%;max-width:540px;background:#fff;border-radius:16px;padding:32px 36px 24px;display:flex;flex-direction:column;gap:20px;position:relative}
+.box .x{position:absolute;top:12px;right:12px;width:44px;height:44px;border:0;background:none;cursor:pointer;display:flex;align-items:center;justify-content:center}
+.box h2{font-size:32px;line-height:1.1;color:var(--aub-d);padding-right:28px}
+.box h2 em{color:var(--coral-d)}
+.box .sub{font-size:15px;color:#5a5a5a}
+.bar{height:6px;border-radius:99px;background:var(--mist);overflow:hidden}
+.bar i{display:block;height:100%;background:var(--coral);border-radius:99px;transition:width .3s}
+.stepl{font-size:13px;color:#6b6b6b;margin-top:8px}
+.step{display:none;flex-direction:column;gap:12px}
+.step.on{display:flex}
+.step h3{font-size:20px;font-weight:600;color:var(--aub-d)}
+.step .hint{font-size:14px;color:#5a5a5a;margin-top:-6px}
+.opt{display:flex;align-items:center;gap:14px;width:100%;min-height:52px;padding:0 18px;border-radius:10px;border:1px solid #E0D8DC;background:#fff;font:inherit;font-size:16px;text-align:left;cursor:pointer;color:var(--graph)}
+.opt::before{content:"";width:18px;height:18px;border-radius:99px;border:2px solid #BDB3B8;flex-shrink:0;box-sizing:border-box}
+.opt:hover{border-color:var(--coral)}
+.opt.sel{border-color:var(--coral);background:#FFF1EC}
+.opt.sel::before{border:6px solid var(--coral)}
+label.f{display:flex;flex-direction:column;gap:6px;font-size:14px;font-weight:600}
+label.f input{min-height:50px;padding:0 16px;border:1px solid #E0D8DC;background:#F6F3F4;border-radius:10px;font:inherit;font-weight:400;font-size:16px}
+label.f input:focus{outline:2px solid var(--coral);outline-offset:1px;background:#fff}
+.err{color:#B3261E;font-size:13px;min-height:16px}
+.nav{display:flex;gap:12px;margin-top:4px}
+.back{min-height:54px;padding:0 22px;border:1px solid #D6CFD3;background:#fff;border-radius:10px;font:inherit;font-weight:600;color:#5a5a5a;cursor:pointer}
+.nav .btn{flex:1;min-height:54px;font-size:15px;padding:0 16px}
+.sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0)}
+.skip{align-self:flex-start;background:none;border:0;padding:6px 0;min-height:44px;font:inherit;font-size:14px;color:var(--coral-d);text-decoration:underline;cursor:pointer}
+.box .sub{line-height:1.55}
+.safe{text-align:center;font-size:12px;color:#6b6b6b}
+
+@media (max-width:900px){
+  section{padding:72px 0}
+  .hero-grid,.anam,.split{grid-template-columns:1fr;gap:40px}
+  .hero .ph{min-height:320px}
+  .grid3{grid-template-columns:1fr}
+  .strip .wrap{grid-template-columns:repeat(2,1fr)}
+  .anam{padding:36px 24px}
+  .split .ph{min-height:300px}
+  footer .r{text-align:left}
+}
+@media (max-width:520px){
+  .top{padding:24px 0 36px}.top img{height:32px}.top .ghost{display:none}
+  .checks{font-size:16px}
+  .btn{width:100%;padding:0 18px}
+  .strip b{font-size:30px}
+  .box{padding:28px 22px 20px}
+  .box h2{font-size:27px}
+}
+</style>
+</head>
+<body>
+
+<div class="dark">
+  <div class="wrap">
+    <header class="top">
+      <img src="logo-branco.png" alt="Porto Growth &amp; Performance">
+      <button class="ghost" data-open>Falar com especialista</button>
+    </header>
+    <div class="hero">
+      <div class="hero-grid">
+        <div>
+          <div class="eyebrow">Médico com consultório particular</div>
+          <h1>Falta paciente particular na agenda, e quando ele chega, não fecha o tratamento.</h1>
+          <div class="kicker">A Porto resolve os dois.</div>
+          <ul class="checks">
+            <li><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#FF6F45" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12l5 5L20 7"/></svg>Colocamos paciente particular, com perfil pra pagar, na sua agenda.</li>
+            <li><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#FF6F45" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12l5 5L20 7"/></svg>Sobe o ticket médio com plano de tratamento, não só consulta avulsa.</li>
+            <li><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#FF6F45" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12l5 5L20 7"/></svg>Treinamos sua secretária pra converter a conversa no WhatsApp.</li>
+            <li><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#FF6F45" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12l5 5L20 7"/></svg>Você acompanha cada real investido até virar paciente atendido.</li>
+          </ul>
+          <div class="cta-row">
+            <button class="btn btn-coral" data-open>Quero falar com um especialista</button>
+            <span>Leva menos de 2 minutos</span>
+          </div>
+        </div>
+        <div class="ph">[FOTO: Matheus + médico(a) cliente no consultório, segurando a placa de marco]</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="strip">
+  <div class="wrap">
+    <div><b>4 anos</b><span>só com tráfego e aquisição</span></div>
+    <div><b>[XX]</b><span>médicos atendidos</span></div>
+    <div><b>GO · BA · MA · PA</b><span>clínicas em 4 estados</span></div>
+    <div><b>R$ [X]M</b><span>em faturamento rastreado</span></div>
+  </div>
+</div>
+
+<section>
+  <div class="wrap">
+    <div class="head">
+      <div class="eyebrow">Depoimentos</div>
+      <h2 style="color:var(--aub-d)">O que dizem os médicos que já trabalham com a gente.</h2>
+    </div>
+    <div class="grid3">
+      <figure class="test"><div class="ph">[VÍDEO 30s]</div><blockquote>[Depoimento a coletar]</blockquote><figcaption><b>Dra. Monique Guilarducci</b><span>Medicina da Dor · Goiânia</span></figcaption></figure>
+      <figure class="test"><div class="ph">[VÍDEO 30s]</div><blockquote>[Depoimento a coletar]</blockquote><figcaption><b>Dr. Walber Gonçalves</b><span>Dermatologia · MA e PA</span></figcaption></figure>
+      <figure class="test"><div class="ph">[VÍDEO 30s]</div><blockquote>[Depoimento a coletar]</blockquote><figcaption><b>Dr. Victor Hugo</b><span>Geriatria e Cuidados Paliativos · Goiânia</span></figcaption></figure>
+    </div>
+    <div style="margin-top:40px"><button class="btn btn-aub" data-open>Quero resultados assim</button></div>
+  </div>
+</section>
+
+<section style="padding-top:0">
+  <div class="wrap">
+    <div class="anam">
+      <div>
+        <div class="eyebrow">Antes de investir um real</div>
+        <h2>Primeiro a gente faz a anamnese do seu funil.</h2>
+        <p>Mais tráfego num funil furado só aumenta o prejuízo. No Diagnóstico de Funil a gente olha anúncio, atendimento, agenda e retorno, e mostra onde o paciente está se perdendo.</p>
+      </div>
+      <div class="rows">
+        <div><span>Anúncio atrai o paciente certo?</span><b>Tráfego</b></div>
+        <div><span>Secretária responde e agenda rápido?</span><b>Atendimento</b></div>
+        <div><span>Paciente comparece e fecha o plano?</span><b>Consulta</b></div>
+        <div><span>Quanto cada paciente custou e rendeu?</span><b>Números</b></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="dark">
+  <div class="wrap">
+    <div class="head">
+      <div class="eyebrow">Como funciona · Fluxo Privado™</div>
+      <h2>O que fazemos pela sua clínica.</h2>
+    </div>
+    <div class="grid3">
+      <div class="card"><div class="n">01</div><h3>Paciente certo procurando você</h3><p>Campanhas no Meta e no Google filtradas por região e perfil. Alcance fora da sua cidade não vira consulta, então nem entra na conta.</p></div>
+      <div class="card"><div class="n">02</div><h3>Secretária que agenda</h3><p>Roteiro de atendimento, cadência de retorno e CRM implantado, pra conversa do WhatsApp não esfriar antes de virar horário marcado.</p></div>
+      <div class="card"><div class="n">03</div><h3>Números até o faturamento</h3><p>Rastreamos cada conversa do anúncio até a consulta paga. Você vê custo por paciente atendido, e não custo por mensagem.</p></div>
+      <div class="card"><div class="n">04</div><h3>Referência na sua especialidade</h3><p>Posicionamento local pra ser o nome lembrado na sua cidade quando o paciente pesquisa, no Google e nas redes.</p></div>
+      <div class="card"><div class="n">05</div><h3>Agenda previsível</h3><p>Mês a mês você sabe quantos pacientes novos entram, quanto custam e quanto voltam, sem depender só de indicação.</p></div>
+      <div class="card cta"><h3>Quer ver onde sua clínica está perdendo paciente?</h3><button class="btn btn-aub" data-open>Falar com especialista</button></div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap split">
+    <div class="ph">[FOTO: placa de marco entregue a um cliente]</div>
+    <div>
+      <div class="eyebrow">Exclusividade Porto</div>
+      <h2>Placa de marco de faturamento.</h2>
+      <p>Relatório qualquer agência manda. Quando sua clínica bate um marco de faturamento rastreado com a gente, você recebe uma placa física no consultório. É o jeito que a gente tem de mostrar que o número é real.</p>
+    </div>
+  </div>
+</section>
+
+<section style="padding-top:0">
+  <div class="wrap">
+    <div class="scar">
+      <h2>Atendemos um número limitado de clínicas por especialidade em cada cidade.</h2>
+      <p>Se a vaga da sua especialidade na sua região ainda estiver aberta, o próximo passo é uma conversa de 20 minutos.</p>
+      <button class="btn btn-coral" data-open>Verificar vaga na minha região</button>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <img src="logo-branco.png" alt="Porto Growth &amp; Performance">
+    <div class="r">
+      <span>Porto Growth &amp; Performance LTDA · CNPJ 65.341.721/0001-00</span>
+      <span>portogrowth.com.br · Feira de Santana, BA</span>
+      <span>© 2026 Todos os direitos reservados.</span>
+    </div>
+  </div>
+</footer>
+
+<!-- QUIZ -->
+<div class="modal" id="quiz" role="dialog" aria-modal="true" aria-label="Formulário de contato">
+  <div class="box">
+    <button class="x" aria-label="Fechar" data-close><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#6B6B6B" stroke-width="2" stroke-linecap="round"><path d="M6 6l12 12M18 6L6 18"/></svg></button>
+    <div id="prog" style="display:none"><div class="bar"><i id="barfill" style="width:0%"></i></div><div class="stepl" id="stepl"></div></div>
+
+    <!-- 1 Boas-vindas -->
+    <div class="step on" data-step="0">
+      <h2>Falta pouco para você <em>destravar o crescimento</em> do seu consultório.</h2>
+      <p class="sub">Esse formulário nos ajuda a entender o cenário do seu consultório ou clínica para que possamos te apresentar um plano realista e eficiente com tráfego pago. Leva menos de 2 minutos.</p>
+      <div class="nav"><button type="button" class="btn btn-coral" data-next>Começar</button></div>
+    </div>
+
+    <!-- 2 Nome -->
+    <form class="step" data-step="1" data-field="nome" novalidate>
+      <h3>Qual o seu nome?</h3>
+      <label class="f"><span class="sr">Nome</span><input name="nome" autocomplete="name" placeholder="Seu nome" required></label>
+      <div class="err"></div>
+      <div class="nav"><button type="button" class="back" data-back>Voltar</button><button class="btn btn-coral">Continuar</button></div>
+    </form>
+
+    <!-- 3 WhatsApp -->
+    <form class="step" data-step="2" data-field="whatsapp" novalidate>
+      <h3>Qual o seu número de WhatsApp?</h3>
+      <label class="f"><span class="sr">WhatsApp</span><input name="whatsapp" type="tel" autocomplete="tel" inputmode="tel" placeholder="(75) 9 0000-0000" required></label>
+      <div class="err"></div>
+      <div class="nav"><button type="button" class="back" data-back>Voltar</button><button class="btn btn-coral">Continuar</button></div>
+    </form>
+
+    <!-- 4 Instagram -->
+    <form class="step" data-step="3" data-field="instagram" novalidate>
+      <h3>Qual é o @ do Instagram do seu consultório ou clínica?</h3>
+      <label class="f"><span class="sr">Instagram</span><input name="instagram" autocomplete="off" autocapitalize="off" placeholder="@suaclinica" required></label>
+      <div class="err"></div>
+      <div class="nav"><button type="button" class="back" data-back>Voltar</button><button class="btn btn-coral">Continuar</button></div>
+    </form>
+
+    <!-- 5 Faturamento -->
+    <div class="step" data-step="4">
+      <h3>Qual o faturamento mensal do seu consultório ou clínica?</h3>
+      <button class="opt" data-k="faturamento" data-ok="0">Até R$ 20.000</button>
+      <button class="opt" data-k="faturamento" data-ok="1">R$ 20.000 a R$ 40.000</button>
+      <button class="opt" data-k="faturamento" data-ok="1">R$ 40.000 a R$ 70.000</button>
+      <button class="opt" data-k="faturamento" data-ok="1">R$ 70.000 a R$ 100.000</button>
+      <button class="opt" data-k="faturamento" data-ok="1">R$ 100.000 a R$ 200.000</button>
+      <button class="opt" data-k="faturamento" data-ok="1">Acima de R$ 200.000</button>
+      <div class="nav"><button type="button" class="back" data-back>Voltar</button></div>
+    </div>
+
+    <!-- 5b Secretária -->
+    <div class="step" data-step="5">
+      <h3>Hoje, quem responde os pacientes no WhatsApp?</h3>
+      <button class="opt" data-k="secretaria" data-ok="1">Uma secretária</button>
+      <button class="opt" data-k="secretaria" data-ok="1">Duas ou mais secretárias</button>
+      <button class="opt" data-k="secretaria" data-ok="1">Secretária compartilhada com outros profissionais</button>
+      <button class="opt" data-k="secretaria" data-ok="0">Eu mesmo(a) respondo</button>
+      <div class="nav"><button type="button" class="back" data-back>Voltar</button></div>
+    </div>
+
+    <!-- 6 Email -->
+    <form class="step" data-step="6" data-field="email" novalidate>
+      <h3>Qual é o seu melhor e-mail?</h3>
+      <label class="f"><span class="sr">E-mail</span><input name="email" type="email" autocomplete="email" placeholder="voce@suaclinica.com.br" required></label>
+      <div class="err"></div>
+      <div class="nav"><button type="button" class="back" data-back>Voltar</button><button class="btn btn-coral">Continuar</button></div>
+    </form>
+
+    <!-- 7 Site -->
+    <form class="step" data-step="7" data-field="site" novalidate>
+      <h3>Qual é o site do seu consultório ou clínica?</h3>
+      <label class="f"><span class="sr">Site</span><input name="site" type="text" inputmode="url" autocapitalize="off" placeholder="www.suaclinica.com.br"></label>
+      <button type="button" class="skip" data-nosite>Ainda não tenho site</button>
+      <div class="err"></div>
+      <div class="nav"><button type="button" class="back" data-back>Voltar</button><button class="btn btn-coral">Enviar</button></div>
+    </form>
+
+    <!-- 8 Agradecimento (qualificado) -->
+    <div class="step" data-step="8">
+      <h2>Obrigado por responder!</h2>
+      <p class="sub">Em breve nossa equipe entrará em contato ou você pode falar conosco no WhatsApp.</p>
+      <a class="btn btn-coral" id="walink" href="#" target="_blank" rel="noopener">Falar no WhatsApp</a>
+    </div>
+
+    <!-- 9 Agradecimento (demais) -->
+    <div class="step" data-step="9">
+      <h2>Muito bem!</h2>
+      <p class="sub">Em breve nossa equipe entrará em contato ou você pode falar conosco no WhatsApp.</p>
+    </div>
+
+    <p class="safe">Seus dados estão seguros e serão usados apenas para contato.</p>
+  </div>
+</div>
+
+<script>
+(function(){
+  var C = window.PORTO, data = {}, step = 0, TOTAL = 7, ok = {}, sent = false;
+  var WA_TEXT = 'Olá! Acabei de preencher o formulário e quero saber mais sobre como atrair mais pacientes para o meu consultório.';
+  var modal = document.getElementById('quiz');
+  var steps = modal.querySelectorAll('.step');
+
+  var qs = new URLSearchParams(location.search);
+  ['utm_source','utm_medium','utm_campaign','utm_content','utm_term','fbclid','gclid'].forEach(function(k){
+    var v = qs.get(k); if(v){ try{ sessionStorage.setItem(k,v) }catch(e){} }
+  });
+  function stored(k){ try{ return sessionStorage.getItem(k) || qs.get(k) || '' }catch(e){ return qs.get(k)||'' } }
+  function cookie(n){ var m = document.cookie.match('(^|;)\\s*'+n+'=([^;]+)'); return m ? m[2] : '' }
+
+  function go(n){
+    step = n;
+    steps.forEach(function(s){ s.classList.toggle('on', +s.dataset.step === n) });
+    var q = n >= 1 && n <= TOTAL;
+    document.getElementById('prog').style.display = q ? '' : 'none';
+    document.getElementById('barfill').style.width = (n / TOTAL * 100) + '%';
+    document.getElementById('stepl').textContent = 'Pergunta ' + n + ' de ' + TOTAL;
+    var inp = modal.querySelector('.step.on input');
+    if(inp && window.matchMedia('(min-width:700px)').matches) setTimeout(function(){ inp.focus() }, 60);
+  }
+  function open(){ modal.classList.add('open'); document.body.style.overflow='hidden'; if(window.fbq) fbq('trackCustom','FormAberto') }
+  function close(){ modal.classList.remove('open'); document.body.style.overflow='' }
+
+  document.querySelectorAll('[data-open]').forEach(function(b){ b.addEventListener('click', open) });
+  modal.querySelector('[data-close]').addEventListener('click', close);
+  modal.addEventListener('click', function(e){ if(e.target === modal) close() });
+  document.addEventListener('keydown', function(e){ if(e.key === 'Escape') close() });
+  modal.querySelectorAll('[data-back]').forEach(function(b){ b.addEventListener('click', function(){ go(Math.max(0, step-1)) }) });
+  modal.querySelectorAll('[data-next]').forEach(function(b){ b.addEventListener('click', function(){ go(step+1) }) });
+
+  modal.querySelectorAll('.opt').forEach(function(b){
+    b.addEventListener('click', function(){
+      modal.querySelectorAll('.opt[data-k="'+b.dataset.k+'"]').forEach(function(o){ o.classList.remove('sel') });
+      b.classList.add('sel'); data[b.dataset.k] = b.textContent.trim(); ok[b.dataset.k] = b.dataset.ok === '1';
+      setTimeout(function(){ go(step+1) }, 180);
+    });
+  });
+
+  var tel = modal.querySelector('input[name=whatsapp]');
+  tel.addEventListener('input', function(){
+    var d = tel.value.replace(/\D/g,'').slice(0,11), o = d;
+    if(d.length > 2) o = '(' + d.slice(0,2) + ') ' + d.slice(2);
+    if(d.length > 7) o = '(' + d.slice(0,2) + ') ' + d.slice(2,7) + '-' + d.slice(7);
+    tel.value = o;
+  });
+  var ig = modal.querySelector('input[name=instagram]');
+  ig.addEventListener('input', function(){
+    var v = ig.value.replace(/\s/g,'').replace(/^@+/,'');
+    ig.value = v ? '@' + v : '';
+  });
+
+  var rules = {
+    nome: function(v){ return v.length >= 2 ? '' : 'Informe seu nome.' },
+    whatsapp: function(v){ return v.replace(/\D/g,'').length >= 10 ? '' : 'Informe o WhatsApp com DDD.' },
+    instagram: function(v){ return v.length >= 2 ? '' : 'Informe o @ do consultório ou clínica.' },
+    email: function(v){ return /^\S+@\S+\.\S+$/.test(v) ? '' : 'Informe um e-mail válido.' },
+    site: function(v){ return v === '' || /\.\w{2,}/.test(v) ? '' : 'Informe um site válido ou clique em "Ainda não tenho site".' }
+  };
+
+  modal.querySelectorAll('form.step').forEach(function(f){
+    f.addEventListener('submit', function(e){
+      e.preventDefault();
+      var k = f.dataset.field, v = f[k].value.trim(), msg = rules[k](v);
+      f.querySelector('.err').textContent = msg;
+      if(msg) return;
+      data[k] = k === 'whatsapp' ? '55' + v.replace(/\D/g,'') : v;
+      if(k === 'site') return finish();
+      go(step+1);
+    });
+  });
+  modal.querySelector('[data-nosite]').addEventListener('click', function(){ data.site = ''; finish() });
+
+  function qualified(){ return !!(ok.faturamento && ok.secretaria) }
+  function finish(){
+    if(!sent){
+      sent = true;
+      var eventId = 'lead_' + Date.now() + '_' + Math.random().toString(36).slice(2,8);
+      var payload = Object.assign({}, data, {
+        qualificado: qualified(), faturamento_ok: !!ok.faturamento, secretaria_ok: !!ok.secretaria, event_id: eventId, page: location.href, referrer: document.referrer,
+        utm_source: stored('utm_source'), utm_medium: stored('utm_medium'), utm_campaign: stored('utm_campaign'),
+        utm_content: stored('utm_content'), utm_term: stored('utm_term'),
+        fbclid: stored('fbclid'), gclid: stored('gclid'), fbp: cookie('_fbp'), fbc: cookie('_fbc'),
+        user_agent: navigator.userAgent, created_at: new Date().toISOString()
+      });
+      if(C.WEBHOOK_URL){
+        try{ fetch(C.WEBHOOK_URL, { method:'POST', mode:'no-cors', headers:{'Content-Type':'text/plain'}, body: JSON.stringify(payload), keepalive:true }) }catch(err){}
+      }
+      if(window.fbq) fbq('track','Lead',{content_name:'Formulario site', qualificado: qualified() ? 'sim' : 'nao'},{eventID:eventId});
+    }
+    document.getElementById('walink').href = 'https://wa.me/' + C.WHATSAPP + '?text=' + encodeURIComponent(WA_TEXT);
+    go(qualified() ? 8 : 9);
+  }
+})();
+</script>
+</body>
+</html>
