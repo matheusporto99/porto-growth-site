@@ -1,0 +1,6 @@
+Coloque aqui as fotos dos medicos (quadradas, min. 300x300):
+dr-luciano.jpg
+dra-monique.jpg
+dr-victor.jpg
+dr-walber.jpg
+Sem a foto, aparecem as iniciais.

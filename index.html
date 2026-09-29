@@ -5,7 +5,10 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Porto Growth &amp; Performance — Aquisição de pacientes particulares</title>
 <meta name="description" content="Assessoria de aquisição de pacientes particulares para médicos: tráfego, atendimento e rastreio até o faturamento.">
-<link rel="icon" href="logo-cores.png">
+<link rel="icon" href="favicon.ico" sizes="any">
+<link rel="icon" type="image/png" sizes="32x32" href="favicon-32.png">
+<link rel="apple-touch-icon" href="apple-touch-icon.png">
+<meta name="theme-color" content="#2E0623">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
@@ -76,6 +79,14 @@ section{padding:96px 0}
 .strip b{display:block;font-family:var(--serif);font-weight:400;font-size:40px;line-height:1}
 .strip span{font-size:14px;color:#D9C6D1}
 
+.docs{padding:72px 0 0}
+.docgrid{list-style:none;margin:32px 0 0;padding:0;display:grid;grid-template-columns:repeat(4,1fr);gap:24px}
+.doc{display:flex;flex-direction:column;align-items:center;text-align:center;gap:4px}
+.doc .av{width:112px;height:112px;border-radius:50%;padding:4px;background:linear-gradient(var(--coral),var(--coral));margin-bottom:12px}
+.doc .av span,.doc .av img{width:100%;height:100%;border-radius:50%;border:3px solid var(--bg);display:flex;align-items:center;justify-content:center;background:var(--aub);color:#fff;font-family:var(--serif);font-size:36px;object-fit:cover;box-sizing:border-box}
+.doc b{color:var(--aub-d);font-size:17px}
+.doc span{font-size:15px;color:#3a3a3a}
+.doc small{font-size:13px;color:#6b6b6b}
 .head{max-width:760px;display:flex;flex-direction:column;gap:14px;margin-bottom:48px}
 .grid3{display:grid;grid-template-columns:repeat(3,1fr);gap:24px}
 .test{background:#fff;border:1px solid #E6DEE2;border-radius:16px;padding:28px;display:flex;flex-direction:column;gap:22px;margin:0}
@@ -145,6 +156,7 @@ label.f input:focus{outline:2px solid var(--coral);outline-offset:1px;background
 .safe{text-align:center;font-size:12px;color:#6b6b6b}
 
 @media (max-width:900px){
+  .docgrid{grid-template-columns:repeat(2,1fr);row-gap:36px}
   section{padding:72px 0}
   .hero-grid,.anam,.split{grid-template-columns:1fr;gap:40px}
   .hero .ph{min-height:320px}
@@ -203,6 +215,18 @@ label.f input:focus{outline:2px solid var(--coral);outline-offset:1px;background
     <div><b>R$ [X]M</b><span>em faturamento rastreado</span></div>
   </div>
 </div>
+
+<section class="docs">
+  <div class="wrap">
+    <div class="eyebrow" style="text-align:center">Médicos que já trabalham com a Porto</div>
+    <ul class="docgrid">
+      <li class="doc"><div class="av" data-photo="fotos/dr-luciano.jpg"><span>LL</span></div><b>Dr. Luciano Logrado</b><span>Medicina da Dor</span><small>Feira de Santana, BA</small></li>
+      <li class="doc"><div class="av" data-photo="fotos/dra-monique.jpg"><span>MG</span></div><b>Dra. Monique Guilarducci</b><span>Medicina da Dor</span><small>Goiânia, GO</small></li>
+      <li class="doc"><div class="av" data-photo="fotos/dr-victor.jpg"><span>VH</span></div><b>Dr. Victor Hugo</b><span>Geriatria e Cuidados Paliativos</span><small>Goiânia, GO</small></li>
+      <li class="doc"><div class="av" data-photo="fotos/dr-walber.jpg"><span>WG</span></div><b>Dr. Walber Gonçalves</b><span>Dermatologia</span><small>Maranhão e Pará</small></li>
+    </ul>
+  </div>
+</section>
 
 <section>
   <div class="wrap">
@@ -476,6 +500,11 @@ label.f input:focus{outline:2px solid var(--coral);outline-offset:1px;background
     go(qualified() ? 8 : 9);
   }
 })();
+</script>
+<script>
+document.querySelectorAll('.av[data-photo]').forEach(function(a){
+  var img=new Image(); img.alt=''; img.onload=function(){ a.innerHTML=''; a.appendChild(img) }; img.src=a.dataset.photo;
+});
 </script>
 </body>
 </html>
