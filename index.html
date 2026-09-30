@@ -16,9 +16,10 @@
 <!-- ===================== CONFIG ===================== -->
 <script>
   window.PORTO = {
-    WEBHOOK_URL: "",          // ex.: https://seu-n8n.com/webhook/lp-medicos  (vazio = só redireciona pro WhatsApp)
+    WEBHOOK_URL: "https://hook.us2.make.com/opbf7uf07z71g2imv8ellyahsfla4zc2",
     WHATSAPP: "5575999110059",// DDI+DDD+número, só dígitos
-    META_PIXEL_ID: ""         // ex.: 123456789012345  (vazio = pixel desligado)
+    META_PIXEL_ID: "",        // ex.: 123456789012345  (vazio = pixel desligado)
+    AUTO_OPEN: true           // false = formulário só abre pelos botões
   };
 </script>
 <!-- ================================================== -->
@@ -144,6 +145,8 @@ footer .r{display:flex;flex-direction:column;gap:6px;text-align:right}
 .opt.sel{border-color:var(--coral);background:#FFF1EC}
 .opt.sel::before{border:6px solid var(--coral)}
 label.f{display:flex;flex-direction:column;gap:6px;font-size:14px;font-weight:600}
+label.f[hidden]{display:none}
+label.f select{min-height:50px;padding:0 12px;border:1px solid #E0D8DC;background:#F6F3F4;border-radius:10px;font:inherit;font-weight:400;font-size:16px;color:var(--graph)}
 label.f input{min-height:50px;padding:0 16px;border:1px solid #E0D8DC;background:#F6F3F4;border-radius:10px;font:inherit;font-weight:400;font-size:16px}
 label.f input:focus{outline:2px solid var(--coral);outline-offset:1px;background:#fff}
 .err{color:#B3261E;font-size:13px;min-height:16px}
@@ -341,36 +344,88 @@ label.f input:focus{outline:2px solid var(--coral);outline-offset:1px;background
 
     <!-- 4 Instagram -->
     <form class="step" data-step="3" data-field="instagram" novalidate>
-      <h3>Qual é o @ do Instagram do seu consultório ou clínica?</h3>
-      <label class="f"><span class="sr">Instagram</span><input name="instagram" autocomplete="off" autocapitalize="off" placeholder="@suaclinica" required></label>
+      <h3>Qual é o @ do Instagram que você usa para a parte profissional?</h3>
+      <label class="f"><span class="sr">Instagram</span><input name="instagram" autocomplete="off" autocapitalize="off" placeholder="@dr.seunome" required></label>
+      <div class="err"></div>
+      <div class="nav"><button type="button" class="back" data-back>Voltar</button><button class="btn btn-coral">Continuar</button></div>
+    </form>
+
+    <!-- Especialidade -->
+    <form class="step" data-step="4" data-field="especialidade" novalidate>
+      <h3>Qual a sua especialidade?</h3>
+      <label class="f"><span class="sr">Especialidade</span>
+      <select name="especialidade" required>
+        <option value="">Selecione</option>
+        <optgroup label="Medicina">
+          <option data-area="medicina">Anestesiologista</option>
+          <option data-area="medicina">Angiologista / Cirurgião vascular</option>
+          <option data-area="medicina">Cardiologista</option>
+          <option data-area="medicina">Cirurgião plástico</option>
+          <option data-area="medicina">Clínico geral</option>
+          <option data-area="medicina">Dermatologista</option>
+          <option data-area="medicina">Endocrinologista</option>
+          <option data-area="medicina">Gastroenterologista</option>
+          <option data-area="medicina">Geriatra</option>
+          <option data-area="medicina">Ginecologista / Obstetra</option>
+          <option data-area="medicina">Mastologista</option>
+          <option data-area="medicina">Medicina da Dor</option>
+          <option data-area="medicina">Médico do esporte</option>
+          <option data-area="medicina">Neurologista</option>
+          <option data-area="medicina">Nutrólogo</option>
+          <option data-area="medicina">Oftalmologista</option>
+          <option data-area="medicina">Ortopedista</option>
+          <option data-area="medicina">Otorrinolaringologista</option>
+          <option data-area="medicina">Pediatra</option>
+          <option data-area="medicina">Proctologista</option>
+          <option data-area="medicina">Psiquiatra</option>
+          <option data-area="medicina">Reumatologista</option>
+          <option data-area="medicina">Tricologista</option>
+          <option data-area="medicina">Urologista / Andrologista</option>
+        </optgroup>
+        <optgroup label="Odontologia">
+          <option data-area="odontologia">Clínico geral (dentista)</option>
+          <option data-area="odontologia">Dentística</option>
+          <option data-area="odontologia">Endodontista</option>
+          <option data-area="odontologia">HOF (harmonização orofacial)</option>
+          <option data-area="odontologia">Implantodontista</option>
+          <option data-area="odontologia">Odontopediatra</option>
+          <option data-area="odontologia">Ortodontista</option>
+          <option data-area="odontologia">Protesista</option>
+        </optgroup>
+        <optgroup label="Outras">
+          <option data-area="outra">Biomédica(o)</option>
+          <option data-area="outra">Outra</option>
+        </optgroup>
+      </select></label>
+      <label class="f" id="esp-outra" hidden>Qual?<input name="especialidade_outra" placeholder="Digite a sua especialidade"></label>
       <div class="err"></div>
       <div class="nav"><button type="button" class="back" data-back>Voltar</button><button class="btn btn-coral">Continuar</button></div>
     </form>
 
     <!-- 5 Faturamento -->
-    <div class="step" data-step="4">
+    <div class="step" data-step="5">
       <h3>Qual o faturamento mensal do seu consultório ou clínica?</h3>
       <button class="opt" data-k="faturamento" data-ok="0">Até R$ 20.000</button>
-      <button class="opt" data-k="faturamento" data-ok="1">R$ 20.000 a R$ 40.000</button>
-      <button class="opt" data-k="faturamento" data-ok="1">R$ 40.000 a R$ 70.000</button>
-      <button class="opt" data-k="faturamento" data-ok="1">R$ 70.000 a R$ 100.000</button>
-      <button class="opt" data-k="faturamento" data-ok="1">R$ 100.000 a R$ 200.000</button>
-      <button class="opt" data-k="faturamento" data-ok="1">Acima de R$ 200.000</button>
+      <button class="opt" data-k="faturamento" data-ok="1">R$ 20.000 a R$ 30.000</button>
+      <button class="opt" data-k="faturamento" data-ok="2">R$ 30.000 a R$ 50.000</button>
+      <button class="opt" data-k="faturamento" data-ok="2">R$ 50.000 a R$ 100.000</button>
+      <button class="opt" data-k="faturamento" data-ok="2">R$ 100.000 a R$ 200.000</button>
+      <button class="opt" data-k="faturamento" data-ok="2">Acima de R$ 200.000</button>
       <div class="nav"><button type="button" class="back" data-back>Voltar</button></div>
     </div>
 
     <!-- 5b Secretária -->
-    <div class="step" data-step="5">
+    <div class="step" data-step="6">
       <h3>Hoje, quem responde os pacientes no WhatsApp?</h3>
-      <button class="opt" data-k="secretaria" data-ok="1">Uma secretária</button>
+      <button class="opt" data-k="secretaria" data-ok="1">Uma secretária só minha</button>
       <button class="opt" data-k="secretaria" data-ok="1">Duas ou mais secretárias</button>
-      <button class="opt" data-k="secretaria" data-ok="1">Secretária compartilhada com outros profissionais</button>
+      <button class="opt" data-k="secretaria" data-ok="0">Secretária compartilhada com outros profissionais</button>
       <button class="opt" data-k="secretaria" data-ok="0">Eu mesmo(a) respondo</button>
       <div class="nav"><button type="button" class="back" data-back>Voltar</button></div>
     </div>
 
     <!-- 6 Email -->
-    <form class="step" data-step="6" data-field="email" novalidate>
+    <form class="step" data-step="7" data-field="email" novalidate>
       <h3>Qual é o seu melhor e-mail?</h3>
       <label class="f"><span class="sr">E-mail</span><input name="email" type="email" autocomplete="email" placeholder="voce@suaclinica.com.br" required></label>
       <div class="err"></div>
@@ -378,7 +433,7 @@ label.f input:focus{outline:2px solid var(--coral);outline-offset:1px;background
     </form>
 
     <!-- 7 Site -->
-    <form class="step" data-step="7" data-field="site" novalidate>
+    <form class="step" data-step="8" data-field="site" novalidate>
       <h3>Qual é o site do seu consultório ou clínica?</h3>
       <label class="f"><span class="sr">Site</span><input name="site" type="text" inputmode="url" autocapitalize="off" placeholder="www.suaclinica.com.br"></label>
       <button type="button" class="skip" data-nosite>Ainda não tenho site</button>
@@ -387,14 +442,14 @@ label.f input:focus{outline:2px solid var(--coral);outline-offset:1px;background
     </form>
 
     <!-- 8 Agradecimento (qualificado) -->
-    <div class="step" data-step="8">
+    <div class="step" data-step="9">
       <h2>Obrigado por responder!</h2>
       <p class="sub">Em breve nossa equipe entrará em contato ou você pode falar conosco no WhatsApp.</p>
       <a class="btn btn-coral" id="walink" href="#" target="_blank" rel="noopener">Falar no WhatsApp</a>
     </div>
 
     <!-- 9 Agradecimento (demais) -->
-    <div class="step" data-step="9">
+    <div class="step" data-step="10">
       <h2>Muito bem!</h2>
       <p class="sub">Em breve nossa equipe entrará em contato ou você pode falar conosco no WhatsApp.</p>
     </div>
@@ -405,7 +460,7 @@ label.f input:focus{outline:2px solid var(--coral);outline-offset:1px;background
 
 <script>
 (function(){
-  var C = window.PORTO, data = {}, step = 0, TOTAL = 7, ok = {}, sent = false;
+  var C = window.PORTO, data = {}, step = 0, TOTAL = 8, ok = {}, sent = false;
   var WA_TEXT = 'Olá! Acabei de preencher o formulário e quero saber mais sobre como atrair mais pacientes para o meu consultório.';
   var modal = document.getElementById('quiz');
   var steps = modal.querySelectorAll('.step');
@@ -428,10 +483,13 @@ label.f input:focus{outline:2px solid var(--coral);outline-offset:1px;background
     if(inp && window.matchMedia('(min-width:700px)').matches) setTimeout(function(){ inp.focus() }, 60);
   }
   function open(){ modal.classList.add('open'); document.body.style.overflow='hidden'; if(window.fbq) fbq('trackCustom','FormAberto') }
-  function close(){ modal.classList.remove('open'); document.body.style.overflow='' }
+  function close(){ modal.classList.remove('open'); document.body.style.overflow=''; try{ sessionStorage.setItem('porto_form_closed','1') }catch(e){} }
 
   document.querySelectorAll('[data-open]').forEach(function(b){ b.addEventListener('click', open) });
   modal.querySelector('[data-close]').addEventListener('click', close);
+  // abre sozinho ao entrar (uma vez por sessão; se a pessoa fechar, não reabre)
+  var autoClosed = false; try{ autoClosed = sessionStorage.getItem('porto_form_closed') === '1' }catch(e){}
+  if(!autoClosed && C.AUTO_OPEN !== false) setTimeout(open, 600);
   modal.addEventListener('click', function(e){ if(e.target === modal) close() });
   document.addEventListener('keydown', function(e){ if(e.key === 'Escape') close() });
   modal.querySelectorAll('[data-back]').forEach(function(b){ b.addEventListener('click', function(){ go(Math.max(0, step-1)) }) });
@@ -440,11 +498,13 @@ label.f input:focus{outline:2px solid var(--coral);outline-offset:1px;background
   modal.querySelectorAll('.opt').forEach(function(b){
     b.addEventListener('click', function(){
       modal.querySelectorAll('.opt[data-k="'+b.dataset.k+'"]').forEach(function(o){ o.classList.remove('sel') });
-      b.classList.add('sel'); data[b.dataset.k] = b.textContent.trim(); ok[b.dataset.k] = b.dataset.ok === '1';
+      b.classList.add('sel'); data[b.dataset.k] = b.textContent.trim(); ok[b.dataset.k] = +b.dataset.ok;
       setTimeout(function(){ go(step+1) }, 180);
     });
   });
 
+  var espSel = modal.querySelector('select[name=especialidade]');
+  espSel.addEventListener('change', function(){ document.getElementById('esp-outra').hidden = espSel.value !== 'Outra' });
   var tel = modal.querySelector('input[name=whatsapp]');
   tel.addEventListener('input', function(){
     var d = tel.value.replace(/\D/g,'').slice(0,11), o = d;
@@ -459,9 +519,10 @@ label.f input:focus{outline:2px solid var(--coral);outline-offset:1px;background
   });
 
   var rules = {
+    especialidade: function(v){ return v ? '' : 'Selecione a sua especialidade.' },
     nome: function(v){ return v.length >= 2 ? '' : 'Informe seu nome.' },
     whatsapp: function(v){ return v.replace(/\D/g,'').length >= 10 ? '' : 'Informe o WhatsApp com DDD.' },
-    instagram: function(v){ return v.length >= 2 ? '' : 'Informe o @ do consultório ou clínica.' },
+    instagram: function(v){ return v.length >= 2 ? '' : 'Informe o seu @ profissional.' },
     email: function(v){ return /^\S+@\S+\.\S+$/.test(v) ? '' : 'Informe um e-mail válido.' },
     site: function(v){ return v === '' || /\.\w{2,}/.test(v) ? '' : 'Informe um site válido ou clique em "Ainda não tenho site".' }
   };
@@ -470,6 +531,10 @@ label.f input:focus{outline:2px solid var(--coral);outline-offset:1px;background
     f.addEventListener('submit', function(e){
       e.preventDefault();
       var k = f.dataset.field, v = f[k].value.trim(), msg = rules[k](v);
+      if(k === 'especialidade' && !msg){
+        var opt = f.especialidade.selectedOptions[0]; data.area = opt.dataset.area || '';
+        if(v === 'Outra'){ v = f.especialidade_outra.value.trim(); if(v.length < 3) msg = 'Digite a sua especialidade.'; }
+      }
       f.querySelector('.err').textContent = msg;
       if(msg) return;
       data[k] = k === 'whatsapp' ? '55' + v.replace(/\D/g,'') : v;
@@ -479,25 +544,34 @@ label.f input:focus{outline:2px solid var(--coral);outline-offset:1px;background
   });
   modal.querySelector('[data-nosite]').addEventListener('click', function(){ data.site = ''; finish() });
 
-  function qualified(){ return !!(ok.faturamento && ok.secretaria) }
+  // qualificado: faturamento >= 30 mil + secretária própria
+  // intermediario: 20-30 mil com secretária própria, ou >= 30 mil sem secretária própria
+  // desqualificado: resto
+  function nivel(){
+    var f = ok.faturamento || 0, sec = (ok.secretaria || 0) >= 1;
+    if(f >= 2 && sec) return 'qualificado';
+    if((f === 1 && sec) || (f >= 2 && !sec)) return 'intermediario';
+    return 'desqualificado';
+  }
+  function qualified(){ return nivel() === 'qualificado' }
   function finish(){
     if(!sent){
       sent = true;
       var eventId = 'lead_' + Date.now() + '_' + Math.random().toString(36).slice(2,8);
       var payload = Object.assign({}, data, {
-        qualificado: qualified(), faturamento_ok: !!ok.faturamento, secretaria_ok: !!ok.secretaria, event_id: eventId, page: location.href, referrer: document.referrer,
+        nivel: nivel(), qualificado: qualified(), faturamento_30k: (ok.faturamento||0) >= 2, faturamento_20k: (ok.faturamento||0) >= 1, secretaria_propria: (ok.secretaria||0) >= 1, event_id: eventId, page: location.href, referrer: document.referrer,
         utm_source: stored('utm_source'), utm_medium: stored('utm_medium'), utm_campaign: stored('utm_campaign'),
         utm_content: stored('utm_content'), utm_term: stored('utm_term'),
         fbclid: stored('fbclid'), gclid: stored('gclid'), fbp: cookie('_fbp'), fbc: cookie('_fbc'),
         user_agent: navigator.userAgent, created_at: new Date().toISOString()
       });
       if(C.WEBHOOK_URL){
-        try{ fetch(C.WEBHOOK_URL, { method:'POST', mode:'no-cors', headers:{'Content-Type':'text/plain'}, body: JSON.stringify(payload), keepalive:true }) }catch(err){}
+        try{ var fd = new URLSearchParams(); Object.keys(payload).forEach(function(k){ fd.append(k, String(payload[k])) }); fetch(C.WEBHOOK_URL, { method:'POST', mode:'no-cors', body: fd, keepalive:true }) }catch(err){}
       }
-      if(window.fbq) fbq('track','Lead',{content_name:'Formulario site', qualificado: qualified() ? 'sim' : 'nao'},{eventID:eventId});
+      if(window.fbq) fbq('track','Lead',{content_name:'Formulario site', nivel: nivel()},{eventID:eventId});
     }
     document.getElementById('walink').href = 'https://wa.me/' + C.WHATSAPP + '?text=' + encodeURIComponent(WA_TEXT);
-    go(qualified() ? 8 : 9);
+    go(nivel() === 'desqualificado' ? 10 : 9);
   }
 })();
 </script>
