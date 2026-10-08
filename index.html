@@ -65,7 +65,7 @@ section{padding:96px 0}
 .top img{height:40px;width:auto}
 .top .ghost{padding:12px 22px;border:1px solid rgba(255,255,255,.35);border-radius:999px;text-decoration:none;font-size:14px;font-weight:500;background:none;color:#fff;cursor:pointer;font-family:inherit}
 .hero{padding:0 0 96px}
-.hero-grid{display:grid;grid-template-columns:1.1fr .9fr;gap:64px;align-items:center}
+.hero-grid{max-width:840px}
 .hero h1{font-size:clamp(40px,5.2vw,64px);line-height:1.04;margin:22px 0 14px}
 .hero .kicker{font-family:var(--serif);font-style:italic;font-size:clamp(30px,3.4vw,44px);color:var(--coral);line-height:1.1}
 .checks{list-style:none;margin:28px 0 36px;padding:0;display:flex;flex-direction:column;gap:14px;font-size:18px;line-height:1.45;color:#EDE3E9}
@@ -76,7 +76,7 @@ section{padding:96px 0}
 .hero .ph{min-height:560px}
 
 .strip{background:var(--aub);color:#fff;padding:36px 0}
-.strip .wrap{display:grid;grid-template-columns:repeat(4,1fr);gap:28px}
+.strip .wrap{display:grid;grid-template-columns:repeat(3,1fr);gap:28px}
 .strip b{display:block;font-family:var(--serif);font-weight:400;font-size:40px;line-height:1}
 .strip span{font-size:14px;color:#D9C6D1}
 
@@ -163,9 +163,8 @@ label.f input:focus{outline:2px solid var(--coral);outline-offset:1px;background
   .docgrid{grid-template-columns:repeat(2,1fr);row-gap:36px}
   section{padding:72px 0}
   .hero-grid,.anam,.split{grid-template-columns:1fr;gap:40px}
-  .hero .ph{min-height:320px}
   .grid3{grid-template-columns:1fr}
-  .strip .wrap{grid-template-columns:repeat(2,1fr)}
+  .strip .wrap{grid-template-columns:1fr;gap:20px}
   .anam{padding:36px 24px}
   .split .ph{min-height:300px}
   footer .r{text-align:left}
@@ -205,7 +204,6 @@ label.f input:focus{outline:2px solid var(--coral);outline-offset:1px;background
             <span>Leva menos de 2 minutos</span>
           </div>
         </div>
-        <div class="ph">[FOTO: Matheus + médico(a) cliente no consultório, segurando a placa de marco]</div>
       </div>
     </div>
   </div>
@@ -213,10 +211,9 @@ label.f input:focus{outline:2px solid var(--coral);outline-offset:1px;background
 
 <div class="strip">
   <div class="wrap">
-    <div><b>4 anos</b><span>só com tráfego e aquisição</span></div>
-    <div><b>[XX]</b><span>médicos atendidos</span></div>
-    <div><b>GO · BA · MA · PA</b><span>clínicas em 4 estados</span></div>
-    <div><b>R$ [X]M</b><span>em faturamento rastreado</span></div>
+    <div><b>4 anos</b><span>só com tráfego e aquisição de pacientes</span></div>
+    <div><b>GO · BA · MA · PA</b><span>médicos atendidos em 4 estados</span></div>
+    <div><b>Do anúncio à consulta</b><span>cada paciente rastreado até o faturamento</span></div>
   </div>
 </div>
 
@@ -232,11 +229,12 @@ label.f input:focus{outline:2px solid var(--coral);outline-offset:1px;background
   </div>
 </section>
 
+<!-- DEPOIMENTOS: escondido até ter os vídeos
 <section>
   <div class="wrap">
     <div class="head">
       <div class="eyebrow">Depoimentos</div>
-      <h2 style="color:var(--aub-d)">O que dizem os médicos que já trabalham com a gente.</h2>
+      <h2 style="color:var(- -aub-d)">O que dizem os médicos que já trabalham com a gente.</h2>
     </div>
     <div class="grid3">
       <figure class="test"><div class="ph">[VÍDEO 30s]</div><blockquote>[Depoimento a coletar]</blockquote><figcaption><b>Dra. Monique Guilarducci</b><span>Medicina da Dor · Goiânia</span></figcaption></figure>
@@ -246,6 +244,7 @@ label.f input:focus{outline:2px solid var(--coral);outline-offset:1px;background
     <div style="margin-top:40px"><button class="btn btn-aub" data-open>Quero resultados assim</button></div>
   </div>
 </section>
+-->
 
 <section style="padding-top:0">
   <div class="wrap">
@@ -296,9 +295,9 @@ label.f input:focus{outline:2px solid var(--coral);outline-offset:1px;background
 <section style="padding-top:0">
   <div class="wrap">
     <div class="scar">
-      <h2>Atendemos um número limitado de clínicas por especialidade em cada cidade.</h2>
-      <p>Se a vaga da sua especialidade na sua região ainda estiver aberta, o próximo passo é uma conversa de 20 minutos.</p>
-      <button class="btn btn-coral" data-open>Verificar vaga na minha região</button>
+      <h2>Pronto para ter uma agenda particular previsível?</h2>
+      <p>O próximo passo é uma conversa rápida de 10 minutos para entender o momento do seu consultório. Se fizer sentido, a gente marca o diagnóstico completo.</p>
+      <button class="btn btn-coral" data-open>Quero falar com um especialista</button>
     </div>
   </div>
 </section>
