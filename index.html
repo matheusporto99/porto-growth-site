@@ -136,7 +136,7 @@ section{padding:96px 0}
 .rows b{color:var(--steel);font-weight:600}
 
 /* médicos */
-.docgrid{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(3,1fr);gap:24px}
+.docgrid{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(4,1fr);gap:24px}
 .doc{display:flex;flex-direction:column;align-items:center;text-align:center;gap:4px}
 .doc .av{width:120px;height:120px;border-radius:50%;padding:4px;background:var(--coral);margin-bottom:12px}
 .doc .av span,.doc .av img{width:100%;height:100%;border-radius:50%;border:3px solid var(--bg);display:flex;align-items:center;justify-content:center;background:var(--aub);color:#fff;font-family:var(--serif);font-size:36px;object-fit:cover;box-sizing:border-box}
@@ -163,6 +163,7 @@ section{padding:96px 0}
 .case-prints{display:grid;grid-template-columns:1fr 1fr;gap:20px;align-items:start}
 .case-print img{width:100%;height:auto;border-radius:10px}
 .case-print figcaption{font-size:13px;color:#5a5a5a}
+.zoom{display:block;cursor:zoom-in}
 .case-row{display:grid;grid-template-columns:1fr 1fr;gap:48px;align-items:center}
 .case-nums.one{grid-template-columns:1fr;margin-top:20px;max-width:none}
 
@@ -192,6 +193,7 @@ footer .r{display:flex;flex-direction:column;gap:6px;text-align:right}
 .box h2{font-size:30px;line-height:1.12;color:var(--aub-d);padding-right:28px}
 .box h2 em{color:var(--coral-d)}
 .box .sub{font-size:15px;color:#5a5a5a;line-height:1.55}
+#prog{padding-right:44px}
 .bar{height:6px;border-radius:99px;background:var(--mist);overflow:hidden}
 .bar i{display:block;height:100%;background:var(--coral);border-radius:99px;transition:width .3s}
 .stepl{font-size:13px;color:#6b6b6b;margin-top:8px}
@@ -238,9 +240,49 @@ label.f input:focus{outline:2px solid var(--coral);outline-offset:1px;background
   .case-prints{grid-template-columns:1fr}
   footer .r{text-align:left}
 }
+@media (max-width:700px){
+  /* tabela comparativa vira cartões, sem rolagem lateral */
+  .cmp{overflow:visible;background:none;border:0;border-radius:0}
+  .cmp table{min-width:0;display:block}
+  .cmp thead{display:none}
+  .cmp tbody{display:flex;flex-direction:column;gap:12px}
+  .cmp tr{display:block;background:#fff;border:1px solid #E6DEE2;border-radius:14px;overflow:hidden}
+  .cmp td{display:block;padding:14px 18px;border:0;font-size:16px}
+  .cmp td::before{content:attr(data-label);display:block;font-size:11px;letter-spacing:.12em;text-transform:uppercase;font-weight:600;margin-bottom:4px;color:#6b6b6b}
+  .cmp td.p::before{color:var(--coral-d)}
+  .cmp td:first-child{text-decoration:line-through;text-decoration-color:rgba(0,0,0,.25)}
+  /* linhas do diagnóstico: rótulo em cima, pergunta embaixo */
+  .rows div{flex-direction:column;gap:4px;padding:16px 18px}
+  .rows b{order:-1;font-size:12px;letter-spacing:.12em;text-transform:uppercase}
+  /* conta: valores sem quebrar, total empilhado */
+  .calc{padding:24px 20px}
+  .calc div{font-size:16px;align-items:baseline}
+  .calc div b{white-space:nowrap}
+  .calc div.tot{flex-direction:column;align-items:flex-start;gap:2px}
+  /* funil do hero */
+  .funnel{padding:22px 18px}
+  .funnel div.s{padding:13px 14px;font-size:15px}
+  .funnel div.s small{white-space:nowrap;font-size:12px}
+  .head{margin-bottom:32px}
+  .lead{font-size:17px}
+}
 @media (max-width:520px){
   .top{padding:24px 0 36px}.top img{height:32px}.top .ghost{display:none}
-  .docgrid{grid-template-columns:1fr}
+  .docgrid{grid-template-columns:repeat(2,1fr);gap:28px 12px}
+  .doc .av{width:92px;height:92px;margin-bottom:8px}
+  .doc .av span{font-size:28px}
+  .doc b{font-size:15px}
+  .doc span{font-size:14px}
+  section{padding:56px 0}
+  .wrap{padding:0 20px}
+  .anam,.calcwrap{padding:28px 20px}
+  .case{padding:28px 20px;gap:28px}
+  .case-nums b{font-size:34px}
+  .case-print{padding:10px;margin:0 -12px;border-radius:14px}
+  .case-print img{border-radius:8px}
+  .card{padding:26px 22px}
+  .scar{padding:56px 22px}
+  .split{gap:28px}
   .btn{width:100%;padding:0 18px}
   .strip b{font-size:30px}
   .box{padding:28px 22px 20px}
@@ -353,11 +395,11 @@ label.f input:focus{outline:2px solid var(--coral);outline-offset:1px;background
       <table>
         <thead><tr><th scope="col">Agência comum</th><th scope="col" class="p">Porto</th></tr></thead>
         <tbody>
-          <tr><td>Otimiza custo por mensagem</td><td class="p">Otimiza custo por paciente atendido</td></tr>
-          <tr><td>Relatório de cliques e alcance</td><td class="p">Relatório de receita: lead qualificado, convertido, ticket e retorno</td></tr>
-          <tr><td>Para no WhatsApp</td><td class="p">Vai até a consulta atendida</td></tr>
-          <tr><td>Aumenta a verba primeiro</td><td class="p">Fecha o furo primeiro</td></tr>
-          <tr><td>Criativo genérico para todo mundo</td><td class="p">Criativo que atrai o paciente já decidido (Fluxo Privado™)</td></tr>
+          <tr><td data-label="Agência comum">Otimiza custo por mensagem</td><td class="p" data-label="Porto">Otimiza custo por paciente atendido</td></tr>
+          <tr><td data-label="Agência comum">Relatório de cliques e alcance</td><td class="p" data-label="Porto">Relatório de receita: lead qualificado, convertido, ticket e retorno</td></tr>
+          <tr><td data-label="Agência comum">Para no WhatsApp</td><td class="p" data-label="Porto">Vai até a consulta atendida</td></tr>
+          <tr><td data-label="Agência comum">Aumenta a verba primeiro</td><td class="p" data-label="Porto">Fecha o furo primeiro</td></tr>
+          <tr><td data-label="Agência comum">Criativo genérico para todo mundo</td><td class="p" data-label="Porto">Criativo que atrai o paciente já decidido (Metodologia Fluxo Privado™)</td></tr>
         </tbody>
       </table>
     </div>
@@ -388,7 +430,7 @@ label.f input:focus{outline:2px solid var(--coral);outline-offset:1px;background
 <section class="dark">
   <div class="wrap">
     <div class="head">
-      <div class="eyebrow">Como funciona · Fluxo Privado™</div>
+      <div class="eyebrow">Como funciona · Metodologia Fluxo Privado™</div>
       <h2>Uma estrutura de aquisição medida até o faturamento.</h2>
     </div>
     <div class="grid3">
@@ -409,6 +451,7 @@ label.f input:focus{outline:2px solid var(--coral);outline-offset:1px;background
       <div class="eyebrow">Médicos que já trabalham com a Porto</div>
     </div>
     <ul class="docgrid">
+      <li class="doc"><div class="av" data-photo="fotos/dr-luciano.jpg"><span>LL</span></div><b>Dr. Luciano Logrado</b><span>Medicina da Dor</span><small>Feira de Santana, BA</small></li>
       <li class="doc"><div class="av" data-photo="fotos/dra-monique.jpg"><span>MG</span></div><b>Dra. Monique Guilarducci</b><span>Medicina da Dor</span><small>Goiânia, GO</small></li>
       <li class="doc"><div class="av" data-photo="fotos/dr-victor.jpg"><span>VH</span></div><b>Dr. Victor Hugo</b><span>Geriatria e Cuidados Paliativos</span><small>Goiânia, GO</small></li>
       <li class="doc"><div class="av" data-photo="fotos/dr-walber.jpg"><span>WG</span></div><b>Dr. Walber Gonçalves</b><span>Dermatologia</span><small>Maranhão e Pará</small></li>
@@ -431,11 +474,11 @@ label.f input:focus{outline:2px solid var(--coral);outline-offset:1px;background
       </div>
       <div class="case-prints">
         <figure class="case-print">
-          <img src="print-monique-julho.jpg" width="611" height="138" loading="lazy" alt="Mensagem de WhatsApp da Dra. Monique: De julho tivemos 18 consultas e 11 tratamentos fechados delas">
+          <a class="zoom" href="print-monique-julho.jpg" target="_blank" rel="noopener" aria-label="Abrir print em tamanho real"><img src="print-monique-julho.jpg" width="611" height="138" loading="lazy" alt="Mensagem de WhatsApp da Dra. Monique: De julho tivemos 18 consultas e 11 tratamentos fechados delas"></a>
           <figcaption>Mensagem da Dra. Monique sobre os resultados de julho.</figcaption>
         </figure>
         <figure class="case-print">
-          <img src="print-monique-tratamentos.jpg" width="610" height="293" loading="lazy" alt="Mensagem do consultório com dois tratamentos fechados: Spa da Dor de R$ 75.000 parcelado e Pain 4 de R$ 27.500. Nomes ocultados.">
+          <a class="zoom" href="print-monique-tratamentos.jpg" target="_blank" rel="noopener" aria-label="Abrir print em tamanho real"><img src="print-monique-tratamentos.jpg" width="610" height="293" loading="lazy" alt="Mensagem do consultório com dois tratamentos fechados: Spa da Dor de R$ 75.000 parcelado e Pain 4 de R$ 27.500. Nomes ocultados."></a>
           <figcaption>Tratamentos fechados no consultório. Os nomes foram borrados para proteger a privacidade dos pacientes e da equipe, conforme a LGPD.</figcaption>
         </figure>
       </div>
@@ -452,11 +495,11 @@ label.f input:focus{outline:2px solid var(--coral);outline-offset:1px;background
         <div class="case-head">
           <div class="eyebrow">Resultado de cliente</div>
           <h2>Dr. Rafael Azevedo</h2>
-          <span class="case-sub">Agreste de Pernambuco e Paraíba</span>
+          <span class="case-sub">Ortopedia, Traumatologia e Intervenção em Dor · Agreste de Pernambuco e Paraíba</span>
           <div class="case-nums one"><div><b>R$&nbsp;25&nbsp;mil</b><span>em um único tratamento, fechado e 100% pago</span></div></div>
         </div>
         <figure class="case-print">
-          <img src="print-rafael-25k.jpg" width="640" height="255" loading="lazy" alt="Mensagem de WhatsApp de 4 de setembro: Fechei um tratamento de 25k hoje, 100% pago">
+          <a class="zoom" href="print-rafael-25k.jpg" target="_blank" rel="noopener" aria-label="Abrir print em tamanho real"><img src="print-rafael-25k.jpg" width="640" height="255" loading="lazy" alt="Mensagem de WhatsApp de 4 de setembro: Fechei um tratamento de 25k hoje, 100% pago"></a>
           <figcaption>Mensagem do consultório do Dr. Rafael, setembro de 2026.</figcaption>
         </figure>
       </div>
