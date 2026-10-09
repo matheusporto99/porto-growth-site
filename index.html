@@ -159,7 +159,8 @@ section{padding:96px 0}
 .case-nums b{font-family:var(--serif);font-weight:400;font-size:40px;line-height:1.05;color:var(--aub-d)}
 .case-nums span{font-size:15px;line-height:1.5;color:#3a3a3a}
 .case-txt{font-size:18px;line-height:1.65;color:#3a3a3a;max-width:820px}
-.case-print{margin:0;max-width:560px;background:#EFEAE2;border-radius:16px;padding:20px;display:flex;flex-direction:column;gap:12px}
+.case-print{margin:0;background:#EFEAE2;border-radius:16px;padding:20px;display:flex;flex-direction:column;gap:12px}
+.case-prints{display:grid;grid-template-columns:1fr 1fr;gap:20px;align-items:start}
 .case-print img{width:100%;height:auto;border-radius:10px}
 .case-print figcaption{font-size:13px;color:#5a5a5a}
 .case-row{display:grid;grid-template-columns:1fr 1fr;gap:48px;align-items:center}
@@ -234,6 +235,7 @@ label.f input:focus{outline:2px solid var(--coral);outline-offset:1px;background
   .case{padding:32px 24px}
   .case-nums{grid-template-columns:1fr}
   .case-row{grid-template-columns:1fr;gap:28px}
+  .case-prints{grid-template-columns:1fr}
   footer .r{text-align:left}
 }
 @media (max-width:520px){
@@ -428,10 +430,16 @@ label.f input:focus{outline:2px solid var(--coral);outline-offset:1px;background
         <div><b>11 de 18</b><span>consultas de julho de 2026 viraram tratamento fechado</span></div>
         <div><b>até R$&nbsp;75&nbsp;mil</b><span>por tratamento fechado: de R$&nbsp;27,5&nbsp;mil (Pain 4) a R$&nbsp;75&nbsp;mil (Spa da Dor)</span></div>
       </div>
-      <figure class="case-print">
-        <img src="print-monique-julho.jpg" width="611" height="138" loading="lazy" alt="Mensagem de WhatsApp da Dra. Monique: De julho tivemos 18 consultas e 11 tratamentos fechados delas">
-        <figcaption>Mensagem da Dra. Monique sobre os resultados de julho.</figcaption>
-      </figure>
+      <div class="case-prints">
+        <figure class="case-print">
+          <img src="print-monique-julho.jpg" width="611" height="138" loading="lazy" alt="Mensagem de WhatsApp da Dra. Monique: De julho tivemos 18 consultas e 11 tratamentos fechados delas">
+          <figcaption>Mensagem da Dra. Monique sobre os resultados de julho.</figcaption>
+        </figure>
+        <figure class="case-print">
+          <img src="print-monique-tratamentos.jpg" width="610" height="293" loading="lazy" alt="Mensagem do consultório com dois tratamentos fechados: Spa da Dor de R$ 75.000 parcelado e Pain 4 de R$ 27.500. Nomes ocultados.">
+          <figcaption>Tratamentos fechados no consultório. Os nomes foram borrados para proteger a privacidade dos pacientes e da equipe, conforme a LGPD.</figcaption>
+        </figure>
+      </div>
       <p class="case-txt">Em julho de 2026, de cada 10 pacientes que passaram em consulta, 6 fecharam tratamento. O que faz a receita não é só a agenda cheia: é quantas consultas viram tratamento, e isso só aparece quando o funil é medido do anúncio até o fechamento.</p>
     </div>
   </div>
