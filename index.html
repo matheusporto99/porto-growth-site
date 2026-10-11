@@ -896,8 +896,7 @@ label.f input:focus{outline:2px solid var(--coral);outline-offset:1px;background
       sentFinal = true;
       post(payload('completo'));
     }
-    var primeiro = (data.nome || '').split(/\s+/)[0];
-    var txt = 'Olá! Sou ' + primeiro + (data.especialidade ? ', ' + data.especialidade : '') + '. Acabei de preencher o formulário no site e quero entender onde meu consultório está perdendo paciente.';
+    var txt = 'Olá! Acabei de preencher o formulário e quero saber mais sobre como atrair mais pacientes para o meu consultório.';
     document.getElementById('walink').href = 'https://wa.me/' + C.WHATSAPP + '?text=' + encodeURIComponent(txt);
     // WhatsApp só para faturamento a partir de R$ 20 mil
     go((ok.faturamento || 0) >= 1 ? 7 : 8);
