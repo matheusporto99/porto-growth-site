@@ -176,6 +176,23 @@ section{padding:96px 0}
 .video iframe{position:absolute;inset:0;width:100%;height:100%;border:0}
 .video.vertical{aspect-ratio:9/16;max-width:360px}
 
+/* estudo de caso com vídeo */
+.cs{display:grid;grid-template-columns:340px minmax(0,1fr);grid-template-areas:"video head" "video body" "proof proof";column-gap:56px;row-gap:28px;align-items:start}
+.cs-head{grid-area:head;display:flex;flex-direction:column;gap:10px}
+.cs-head h2{color:var(--aub-d)}
+.cs-video{grid-area:video;display:flex;flex-direction:column;gap:10px}
+.cs-video .video.vertical{max-width:none;width:100%}
+.cs-cap{font-size:13px;color:#6b6b6b;text-align:center}
+.cs-body{grid-area:body;display:flex;flex-direction:column;gap:32px}
+.cs-body .quote{max-width:none}
+.cs-body .case-nums{max-width:none}
+.cs-body .case-txt{max-width:none;font-size:17px}
+.cs-proof{grid-area:proof;border-top:1px solid #EDE6EA;padding-top:28px;display:flex;flex-direction:column;gap:16px}
+.cs .case-prints{align-items:stretch}
+.cs .case-print{height:100%;justify-content:space-between}
+.cs .case-print .zoom{margin:auto 0}
+.cs-proof-t{font-size:13px;letter-spacing:.14em;text-transform:uppercase;font-weight:600;color:#6b6b6b}
+
 /* faq */
 .faq{max-width:860px;margin:0 auto;display:flex;flex-direction:column;gap:12px}
 .faq details{background:#fff;border:1px solid #E6DEE2;border-radius:14px;padding:4px 24px}
@@ -247,6 +264,8 @@ label.f input:focus{outline:2px solid var(--coral);outline-offset:1px;background
   .case-nums{grid-template-columns:1fr}
   .case-row{grid-template-columns:1fr;gap:28px}
   .case-prints{grid-template-columns:1fr}
+  .cs{grid-template-columns:1fr;grid-template-areas:"head" "video" "body" "proof"}
+  .cs-video{max-width:340px;width:100%;justify-self:center}
   footer .r{text-align:left}
 }
 @media (max-width:700px){
@@ -478,33 +497,43 @@ label.f input:focus{outline:2px solid var(--coral);outline-offset:1px;background
 <!-- ESTUDO DE CASO -->
 <section style="padding-top:0">
   <div class="wrap">
-    <div class="case">
-      <div class="case-head">
+    <div class="case cs">
+      <div class="cs-head">
         <div class="eyebrow">Estudo de caso</div>
         <h2>Dra. Monique Guilarducci</h2>
         <span class="case-sub">Medicina da Dor · Goiânia, GO · cliente desde março de 2025</span>
       </div>
-      <div class="case-nums">
-        <div><b>11 de 18</b><span>consultas de julho de 2026 viraram tratamento fechado</span></div>
-        <div><b>até R$&nbsp;75&nbsp;mil</b><span>por tratamento fechado: de R$&nbsp;27,5&nbsp;mil (Pain 4) a R$&nbsp;75&nbsp;mil (Spa da Dor)</span></div>
+
+      <div class="cs-video">
+        <!-- VÍDEO DO DEPOIMENTO (Vimeo). Se o vídeo for deitado, troque "video vertical" por "video" -->
+        <div class="video vertical"><iframe src="https://player.vimeo.com/video/1234861349?title=0&amp;byline=0&amp;portrait=0&amp;dnt=1" title="Depoimento em vídeo da Dra. Monique Guilarducci" loading="lazy" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen></iframe></div>
+        <span class="cs-cap">Depoimento em vídeo · outubro de 2026</span>
       </div>
-      <div class="case-prints">
-        <figure class="case-print">
-          <a class="zoom" href="print-monique-julho.jpg" target="_blank" rel="noopener" aria-label="Abrir print em tamanho real"><img src="print-monique-julho.jpg" width="611" height="138" loading="lazy" alt="Mensagem de WhatsApp da Dra. Monique: De julho tivemos 18 consultas e 11 tratamentos fechados delas"></a>
-          <figcaption>Mensagem da Dra. Monique sobre os resultados de julho.</figcaption>
-        </figure>
-        <figure class="case-print">
-          <a class="zoom" href="print-monique-tratamentos.jpg" target="_blank" rel="noopener" aria-label="Abrir print em tamanho real"><img src="print-monique-tratamentos.jpg" width="610" height="293" loading="lazy" alt="Mensagem do consultório com dois tratamentos fechados: Spa da Dor de R$ 75.000 parcelado e Pain 4 de R$ 27.500. Nomes ocultados."></a>
-          <figcaption>Tratamentos fechados no consultório. Os nomes foram borrados para proteger a privacidade dos pacientes e da equipe, conforme a LGPD.</figcaption>
-        </figure>
+
+      <div class="cs-body">
+        <blockquote class="quote">
+          <p>“O médico precisa ter todo o seu conhecimento científico da sua área e acaba não tendo tempo para aprender essa parte de tráfego pago. Então ter alguém de confiança para poder fazer isso é essencial.”</p>
+        </blockquote>
+        <div class="case-nums">
+          <div><b>11 de 18</b><span>consultas de julho de 2026 viraram tratamento fechado</span></div>
+          <div><b>até R$&nbsp;75&nbsp;mil</b><span>por tratamento: de R$&nbsp;27,5&nbsp;mil (Pain 4) a R$&nbsp;75&nbsp;mil (Spa da Dor)</span></div>
+        </div>
+        <p class="case-txt">O que faz a receita não é só a agenda cheia: é quantas consultas viram tratamento. E isso só aparece quando o funil é medido do anúncio até o fechamento.</p>
       </div>
-      <p class="case-txt">Em julho de 2026, de cada 10 pacientes que passaram em consulta, 6 fecharam tratamento. O que faz a receita não é só a agenda cheia: é quantas consultas viram tratamento, e isso só aparece quando o funil é medido do anúncio até o fechamento.</p>
-      <blockquote class="quote">
-        <p>“O médico precisa ter todo o seu conhecimento científico da sua área e acaba não tendo tempo para aprender essa parte de tráfego pago. Então ter alguém de confiança para poder fazer isso é essencial.”</p>
-        <cite>Dra. Monique Guilarducci, em depoimento em vídeo, outubro de 2026</cite>
-      </blockquote>
-      <!-- VÍDEO DO DEPOIMENTO (Vimeo). Se o vídeo for deitado, troque "video vertical" por "video" -->
-      <div class="video vertical"><iframe src="https://player.vimeo.com/video/1234861349?title=0&amp;byline=0&amp;portrait=0&amp;dnt=1" title="Depoimento em vídeo da Dra. Monique Guilarducci" loading="lazy" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen></iframe></div>
+
+      <div class="cs-proof">
+        <div class="cs-proof-t">As mensagens do consultório</div>
+        <div class="case-prints">
+          <figure class="case-print">
+            <a class="zoom" href="print-monique-julho.jpg" target="_blank" rel="noopener" aria-label="Abrir print em tamanho real"><img src="print-monique-julho.jpg" width="611" height="138" loading="lazy" alt="Mensagem de WhatsApp da Dra. Monique: De julho tivemos 18 consultas e 11 tratamentos fechados delas"></a>
+            <figcaption>Resultado de julho, enviado pela Dra. Monique.</figcaption>
+          </figure>
+          <figure class="case-print">
+            <a class="zoom" href="print-monique-tratamentos.jpg" target="_blank" rel="noopener" aria-label="Abrir print em tamanho real"><img src="print-monique-tratamentos.jpg" width="610" height="293" loading="lazy" alt="Mensagem do consultório com dois tratamentos fechados: Spa da Dor de R$ 75.000 parcelado e Pain 4 de R$ 27.500. Nomes ocultados."></a>
+            <figcaption>Tratamentos fechados. Os nomes foram borrados para proteger a privacidade dos pacientes e da equipe, conforme a LGPD.</figcaption>
+          </figure>
+        </div>
+      </div>
     </div>
   </div>
 </section>
