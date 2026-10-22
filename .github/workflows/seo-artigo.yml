@@ -1,0 +1,68 @@
+name: Artigo SEO semanal
+
+on:
+  schedule:
+    - cron: '47 10 * * 1'   # toda segunda, 7h47 na Bahia (10h47 UTC)
+  workflow_dispatch:
+    inputs:
+      tema:
+        description: 'Tema do artigo (deixe vazio para usar a fila ou a pesquisa automática)'
+        required: false
+        default: ''
+  push:
+    branches: ['artigo/**']
+    paths: ['seo/artigos/**', 'seo/config.json', 'seo/lib/render.mjs']
+
+permissions:
+  contents: write
+  pull-requests: write
+
+concurrency:
+  group: seo-${{ github.ref }}
+  cancel-in-progress: false
+
+jobs:
+  escrever:
+    if: github.event_name != 'push'
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+
+      - name: Escrever e revisar o artigo
+        id: gerar
+        env:
+          ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+          SEO_TEMA: ${{ github.event.inputs.tema }}
+        run: node seo/gerar.mjs
+
+      - name: Abrir Pull Request para aprovação
+        uses: peter-evans/create-pull-request@v7
+        with:
+          branch: artigo/${{ steps.gerar.outputs.slug }}
+          commit-message: 'Novo artigo: ${{ steps.gerar.outputs.titulo }}'
+          title: 'Novo artigo: ${{ steps.gerar.outputs.titulo }}'
+          body-path: seo/.pr.md
+          labels: artigo
+          delete-branch: true
+
+  refazer-paginas:
+    # quando você edita o JSON do artigo dentro do PR, as páginas são refeitas
+    if: github.event_name == 'push' && github.actor != 'github-actions[bot]'
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+      - run: node seo/gerar.mjs --rebuild
+      - name: Salvar páginas refeitas
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add -A blog sitemap.xml robots.txt llms.txt
+          git diff --cached --quiet || (git commit -m "Refaz páginas do blog" && git push)

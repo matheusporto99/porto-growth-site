@@ -1,0 +1,61 @@
+{
+  "site": {
+    "nome": "Porto Growth & Performance",
+    "url": "https://portogrowth.com.br",
+    "logo": "https://portogrowth.com.br/logo-cores.png",
+    "cidade": "Feira de Santana, BA",
+    "autor": "Matheus Porto",
+    "cta_texto": "Quero o diagnóstico do meu funil",
+    "cta_apoio": "Responda a aplicação e a equipe da Porto entra em contato.",
+    "cta_link": "https://form.respondi.app/nwzNoNbR"
+  },
+
+  "publico": "Médicos particulares (consultório ou clínica própria) que querem mais pacientes particulares e agenda previsível. Especialidades fortes: Medicina da Dor, Dermatologia, Ortopedia, Geriatria. Leem no celular, têm pouco tempo, já testaram agência ou impulsionamento e se frustraram.",
+
+  "tom_de_voz": "Direto, seguro e sem jargão de marketing. Frases curtas. Fala de médico para médico usando analogias clínicas (anamnese, diagnóstico, prescrição, furo no funil). Nada de promessa milagrosa, nada de 'explosão de vendas', nada de emoji. Mostra números reais quando existem e diz quando um número é ilustrativo. Em português do Brasil.",
+
+  "tese": "Médico particular não perde receita por falta de tráfego: perde no caminho entre a mensagem no WhatsApp e o tratamento fechado. A Porto mede do anúncio até a receita, fecha o furo e só então escala (Metodologia Fluxo Privado™: Medir, Fechar o furo, Escalar).",
+
+  "provas_permitidas": [
+    "4 anos trabalhando só com tráfego e aquisição de pacientes para médicos.",
+    "Dra. Monique Guilarducci (Medicina da Dor, Goiânia, cliente desde março de 2025): faturamento mensal do consultório foi de R$ 15 mil para mais de R$ 150 mil.",
+    "Dra. Monique: 11 de 18 consultas de julho de 2026 viraram tratamento fechado; tratamentos de R$ 27,5 mil a R$ 75 mil.",
+    "Um consultório de Medicina da Dor que começou do zero faturou R$ 2,2 milhões em 2025.",
+    "Clientes de Medicina da Dor da Porto fecharam tratamentos de R$ 25 mil a R$ 75 mil em 2026.",
+    "Empresas que respondem um lead em até 1 hora têm cerca de 7 vezes mais chance de qualificá-lo (Oldroyd, McElheran e Elkington, 'The Short Life of Online Sales Leads', Harvard Business Review, 2011)."
+  ],
+
+  "regras": [
+    "Nunca inventar estatística, estudo, porcentagem, nome de cliente ou depoimento. Só usar números da lista de provas permitidas ou números claramente marcados como exemplo ilustrativo.",
+    "Nunca prometer resultado garantido (ex.: 'garantimos X pacientes', 'agenda cheia em 30 dias').",
+    "Quando falar de publicidade médica, citar a Resolução CFM 2.336/2023 de forma geral e recomendar que o médico confirme no texto oficial do CFM; não interpretar artigos específicos da resolução.",
+    "Não citar nomes de concorrentes nem falar mal de agências específicas.",
+    "Não dar conselho clínico nem jurídico.",
+    "Não citar autores, livros ou pessoas sem dizer em uma frase quem são e de onde vem a ideia."
+  ],
+
+  "sementes": [
+    "tráfego pago para médicos",
+    "marketing médico",
+    "como conseguir pacientes particulares",
+    "anúncios para médicos",
+    "como divulgar consultório médico",
+    "secretária de consultório",
+    "agenda de consultório vazia",
+    "publicidade médica CFM",
+    "google meu negócio médico",
+    "whatsapp consultório médico"
+  ],
+
+  "modificadores": ["como", "quanto custa", "vale a pena", "funciona", "o que fazer"],
+
+  "artigo": {
+    "palavras_min": 1100,
+    "palavras_max": 1800,
+    "faq_min": 3,
+    "faq_max": 5
+  },
+
+  "modelo": "claude-sonnet-5-5",
+  "modelo_revisao": "claude-sonnet-5-5"
+}
