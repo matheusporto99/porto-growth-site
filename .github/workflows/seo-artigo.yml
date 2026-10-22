@@ -1,8 +1,10 @@
 name: Artigo SEO semanal
 
 on:
-  schedule:
-    - cron: '47 10 * * 1'   # toda segunda, 7h47 na Bahia (10h47 UTC)
+  # Desligado por enquanto: hoje os artigos são escritos por uma tarefa agendada no Claude.
+  # Para ligar com a API paga, crie o secret ANTHROPIC_API_KEY e descomente as 2 linhas abaixo.
+  # schedule:
+  #   - cron: '47 10 * * 1'   # toda segunda, 7h47 na Bahia (10h47 UTC)
   workflow_dispatch:
     inputs:
       tema:
