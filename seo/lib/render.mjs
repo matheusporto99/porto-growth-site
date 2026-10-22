@@ -157,9 +157,9 @@ footer a{text-decoration:none}
 }
 </style>`;
 
-const topo = (cfg) => `<div class="bar"><div class="wrap">
+const topo = (cfg, campanha = 'blog') => `<div class="bar"><div class="wrap">
   <a href="/" aria-label="${esc(cfg.site.nome)}"><img src="/logo-branco.png" alt="${esc(cfg.site.nome)}" width="160" height="34"></a>
-  <nav><a href="/blog/" class="so-desk">Blog</a><a class="ghost" href="${esc(cfg.site.cta_link)}?utm_source=blog&amp;utm_medium=organico&amp;utm_campaign=topo">Falar com especialista</a></nav>
+  <nav><a href="/blog/" class="so-desk">Blog</a><a class="ghost" href="${esc(cfg.site.cta_link)}?utm_source=blog&amp;utm_medium=organico&amp;utm_campaign=${encodeURIComponent(campanha)}&amp;utm_content=botao-topo">Falar com especialista</a></nav>
 </div></div>`;
 
 const rodape = (cfg) => `<footer>
@@ -181,7 +181,7 @@ export function paginaArtigo(a, cfg, todos) {
   const url = `${base}/blog/${a.slug}/`;
   const palavras = contarPalavras(a.corpo_html);
   const minutos = Math.max(3, Math.round(palavras / 200));
-  const ctaLink = `${cfg.site.cta_link}?utm_source=blog&utm_medium=organico&utm_campaign=${encodeURIComponent(a.slug)}`;
+  const ctaLink = `${cfg.site.cta_link}?utm_source=blog&utm_medium=organico&utm_campaign=${encodeURIComponent(a.slug)}&utm_content=caixa-final`;
   const relacionados = todos.filter((x) => x.slug !== a.slug).slice(0, 3);
 
   const schema = [
@@ -231,7 +231,7 @@ ${CSS}
 ${schema.map(ld).join('\n')}
 </head>
 <body>
-${topo(cfg)}
+${topo(cfg, a.slug)}
 <div class="art">
   <nav class="crumbs" aria-label="Você está em"><a href="/">Início</a> › <a href="/blog/">Blog</a></nav>
   <article>
@@ -302,7 +302,7 @@ ${CSS}
 ${ld(schema)}
 </head>
 <body>
-${topo(cfg)}
+${topo(cfg, 'blog-inicio')}
 <div class="hub">
   <header>
     <span class="eyebrow">Blog da Porto</span>
