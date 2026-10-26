@@ -11,4 +11,5 @@ Agência de tráfego pago e aquisição de pacientes para médicos particulares,
 
 ## Artigos
 
+- [Como responder paciente no WhatsApp do consultório sem perder a consulta](https://portogrowth.com.br/blog/como-responder-paciente-no-whatsapp/): Responder rápido, com nome, uma pergunta sobre o caso e dois horários concretos. E retomar no dia seguinte quem parou de responder.
 - [Tráfego pago para médicos: por que mais anúncio não enche a agenda](https://portogrowth.com.br/blog/trafego-pago-para-medicos/): Funciona, mas quase nunca falha no anúncio. Falha no caminho entre a mensagem no WhatsApp e o tratamento fechado, e é ali que o dinheiro some.

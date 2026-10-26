@@ -1,9 +1,10 @@
 {
   "_como_usar": "Escreva temas em 'fila' (um por linha, de cima para baixo). O robô usa o primeiro da fila; se a fila estiver vazia, ele pesquisa no Google sozinho. Temas já publicados vão para 'publicados' automaticamente.",
   "fila": [
-    "Como responder o paciente no WhatsApp do consultório sem perder a consulta",
     "Paciente perguntou o valor e sumiu: o que fazer",
     "Agência de tráfego para médico: o que perguntar antes de contratar"
   ],
-  "publicados": []
+  "publicados": [
+    "Como responder o paciente no WhatsApp do consultório sem perder a consulta"
+  ]
 }
