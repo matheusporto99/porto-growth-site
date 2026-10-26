@@ -18,19 +18,11 @@
   window.PORTO = {
     WEBHOOK_URL: "https://hook.us2.make.com/opbf7uf07z71g2imv8ellyahsfla4zc2",
     WHATSAPP: "5575999110059",// DDI+DDD+número, só dígitos
-    META_PIXEL_ID: "",        // ex.: 123456789012345  (vazio = pixel desligado)
+    META_PIXEL_ID: "1082635481276358", // usado no Advanced Matching do formulário (vazio = sem matching)
     AUTO_OPEN: true           // false = formulário só abre pelos botões
   };
 </script>
 <!-- ================================================== -->
-
-<script>
-  (function(){
-    var id = window.PORTO.META_PIXEL_ID; if(!id) return;
-    !function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}(window,document,'script','https://connect.facebook.net/en_US/fbevents.js');
-    fbq('init', id); fbq('track', 'PageView');
-  })();
-</script>
 
 <style>
 :root{
@@ -325,6 +317,21 @@ label.f input:focus{outline:2px solid var(--coral);outline-offset:1px;background
   .calc div.tot b{font-size:38px}
 }
 </style>
+<!-- Meta Pixel Code -->
+<script>
+!function(f,b,e,v,n,t,s)
+{if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+n.queue=[];t=b.createElement(e);t.async=!0;
+t.src=v;s=b.getElementsByTagName(e)[0];
+s.parentNode.insertBefore(t,s)}(window, document,'script',
+'https://connect.facebook.net/en_US/fbevents.js');
+fbq('init', '1082635481276358');
+fbq('track', 'PageView');
+</script>
+<noscript><img height="1" width="1" style="display:none" src="https://www.facebook.com/tr?id=1082635481276358&amp;ev=PageView&amp;noscript=1"></noscript>
+<!-- End Meta Pixel Code -->
 </head>
 <body>
 

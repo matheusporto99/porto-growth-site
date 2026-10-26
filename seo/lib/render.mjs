@@ -75,6 +75,33 @@ const ICONES = `<link rel="icon" href="/favicon.ico" sizes="any">
 <link rel="apple-touch-icon" href="/apple-touch-icon.png">
 <meta name="theme-color" content="#2E0623">`;
 
+// ---------- Pixel da Meta ----------
+// Código base (PageView) em todas as páginas; nos artigos, também ViewContent com o título.
+// O ID vem de cfg.site.meta_pixel_id. Sem ID, nenhuma página recebe pixel.
+const js = (v) => JSON.stringify(v).replace(/</g, '\\u003c');
+function pixelMeta(cfg, artigo) {
+  const id = String(cfg.site.meta_pixel_id || '').replace(/\D/g, '');
+  if (!id) return '';
+  const vc = artigo ? `\nfbq('track', 'ViewContent', { content_name: ${js(artigo.titulo)}, content_category: 'blog' });` : '';
+  return `<!-- Meta Pixel Code -->
+<script>
+!function(f,b,e,v,n,t,s)
+{if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+n.queue=[];t=b.createElement(e);t.async=!0;
+t.src=v;s=b.getElementsByTagName(e)[0];
+s.parentNode.insertBefore(t,s)}(window, document,'script',
+'https://connect.facebook.net/en_US/fbevents.js');
+fbq('init', '${id}');
+fbq('track', 'PageView');${vc}
+</script>
+<noscript><img height="1" width="1" style="display:none" src="https://www.facebook.com/tr?id=${esc(id)}&amp;ev=PageView&amp;noscript=1"></noscript>
+<!-- End Meta Pixel Code -->`;
+}
+// Clique nos links do formulário (form.respondi.app)
+const cliqueForm = (origem) => ` onclick="if(window.fbq)fbq('trackCustom','CliqueFormulario',{origem:'${String(origem).replace(/[^a-z0-9-]/gi, '')}'});"`;
+
 const CSS = `<style>
 :root{--aub:#450A34;--aub-d:#2E0623;--coral:#FF6F45;--coral-d:#B8472A;--graph:#2B2B2B;--mist:#EFEFEF;--bg:#FAF7F5;--mute:#E3D3DC;--line:#E7DCE2;--serif:'Instrument Serif',Georgia,serif}
 *{box-sizing:border-box}
@@ -157,9 +184,9 @@ footer a{text-decoration:none}
 }
 </style>`;
 
-const topo = (cfg, campanha = 'blog') => `<div class="bar"><div class="wrap">
+const topo = (cfg, campanha = 'blog', origem = campanha) => `<div class="bar"><div class="wrap">
   <a href="/" aria-label="${esc(cfg.site.nome)}"><img src="/logo-branco.png" alt="${esc(cfg.site.nome)}" width="160" height="34"></a>
-  <nav><a href="/blog/" class="so-desk">Blog</a><a class="ghost" href="${esc(cfg.site.cta_link)}?utm_source=blog&amp;utm_medium=organico&amp;utm_campaign=${encodeURIComponent(campanha)}&amp;utm_content=botao-topo">Falar com especialista</a></nav>
+  <nav><a href="/blog/" class="so-desk">Blog</a><a class="ghost" href="${esc(cfg.site.cta_link)}?utm_source=blog&amp;utm_medium=organico&amp;utm_campaign=${encodeURIComponent(campanha)}&amp;utm_content=botao-topo"${cliqueForm(origem)}>Falar com especialista</a></nav>
 </div></div>`;
 
 const rodape = (cfg) => `<footer>
@@ -229,6 +256,7 @@ ${ICONES}
 ${FONTES}
 ${CSS}
 ${schema.map(ld).join('\n')}
+${pixelMeta(cfg, a)}
 </head>
 <body>
 ${topo(cfg, a.slug)}
@@ -252,7 +280,7 @@ ${a.faq.map((f) => `      <details><summary>${esc(f.pergunta)}</summary><p>${esc
       <span class="eyebrow">Diagnóstico de Funil</span>
       <h2>${esc(a.cta_titulo || 'Quer ver onde o seu consultório está perdendo paciente?')}</h2>
       <p>Antes de aumentar a verba, a gente mede do anúncio até o tratamento fechado e mostra onde está o furo e quanto ele custa.</p>
-      <a class="btn btn-coral" href="${esc(ctaLink)}">${esc(cfg.site.cta_texto)}</a>
+      <a class="btn btn-coral" href="${esc(ctaLink)}"${cliqueForm(a.slug)}>${esc(cfg.site.cta_texto)}</a>
       <small>${esc(cfg.site.cta_apoio)}</small>
     </aside>
   </article>
@@ -300,9 +328,10 @@ ${ICONES}
 ${FONTES}
 ${CSS}
 ${ld(schema)}
+${pixelMeta(cfg)}
 </head>
 <body>
-${topo(cfg, 'blog-inicio')}
+${topo(cfg, 'blog-inicio', 'blog')}
 <div class="hub">
   <header>
     <span class="eyebrow">Blog da Porto</span>
