@@ -122,6 +122,10 @@ strong,.hl{color:var(--fg);font-weight:500}
 /* CTA */
 .cta{display:inline-flex;align-items:center;justify-content:center;gap:10px;background:var(--coral);color:var(--coral-ink);text-decoration:none;font-weight:600;font-size:15px;letter-spacing:.04em;padding:18px 28px;border-radius:999px;transition:transform .15s,box-shadow .15s;text-align:center}
 .cta:hover{transform:translateY(-1px);box-shadow:0 10px 30px -10px rgba(255,111,69,.6)}
+.cta.ghost{background:transparent;color:var(--fg);border:1px solid var(--coral)}
+.cta.ghost:hover{background:rgba(255,111,69,.08);box-shadow:none}
+.alt{margin-top:40px;padding:24px;border:1px solid var(--line);border-radius:14px;display:flex;flex-direction:column;gap:14px;align-items:flex-start}
+.alt h3{margin:0;font-family:var(--serif);font-weight:400;font-size:26px;line-height:1.2;color:var(--fg)}
 .phone{font-size:14px;color:var(--dim)}
 .phone span{color:var(--mute);user-select:all}
 
@@ -266,6 +270,12 @@ fbq('track', 'PageView');
     <p class="mute">O que eu ofereço é um sistema organizado, medido e acompanhado de perto. Você valida, sua recepção executa e os números mostram o caminho.</p>
     <p class="aside">Faça a conta: R$ 3.000 por mês é R$ 100 por dia. Pense no valor da sua consulta particular e em quantas consultas a mais por mês pagam esse investimento.</p>
   </div>
+  <div class="alt">
+    <p class="eyebrow" style="margin:0">Ainda não é o momento da operação completa?</p>
+    <h3>Comece pela Consultoria Estratégica.</h3>
+    <p class="mute">Uma sessão de 90 minutos comigo pra descobrir onde sua captação de pacientes particulares está travando, e um plano de 30 dias pra sua equipe executar. Sem precisar contratar anúncios.</p>
+    <a class="cta ghost" href="/consultoria/">Conhecer a Consultoria Estratégica</a>
+  </div>
 </section>
 
 <section id="comecar">
@@ -292,7 +302,7 @@ fbq('track', 'PageView');
     <div><h3>Vou precisar gravar vídeo?</h3><p>Os roteiros são por nossa conta. A gravação fica com a clínica, no formato que for combinado.</p></div>
     <div><h3>Os anúncios respeitam as regras da publicidade médica?</h3><p>Sim. Toda alegação clínica passa pela sua validação, e nenhuma peça promete resultado de tratamento.</p></div>
     <div><h3>Qual a diferença pra um gestor de tráfego?</h3><p>O gestor de tráfego cuida do anúncio. O Fluxo Privado cuida do anúncio, do motivo pelo qual o paciente te escolhe, da recepção que converte o contato e do número que mostra se tudo isso virou consulta.</p></div>
-    <div><h3>E se eu ainda não estiver pronto pro Fluxo Privado?</h3><p>Existem dois caminhos menores: a Consultoria Estratégica, em que eu analiso sua aquisição e entrego um plano de 30 dias pra sua equipe executar, e o Sprint Tese de Autoridade, em que construímos juntos o seu posicionamento. Na avaliação eu te indico o caminho certo.</p></div>
+    <div><h3>E se eu ainda não estiver pronto pro Fluxo Privado?</h3><p>Comece pela <a href="/consultoria/">Consultoria Estratégica</a>: uma sessão de 90 minutos comigo pra descobrir onde sua captação está travando e sair com um plano de 30 dias pra sua equipe executar.</p></div>
     <div><h3>O que não está incluso?</h3><p>A operação diária da recepção, treinamentos recorrentes, gestão das suas redes sociais orgânicas, gravação presencial e produção audiovisual ilimitada.</p></div>
   </div>
 </section>
