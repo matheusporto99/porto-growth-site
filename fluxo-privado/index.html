@@ -283,13 +283,13 @@ fbq('track', 'PageView');
   <p class="eyebrow">Como começar</p>
   <h2>Uma conversa antes de qualquer proposta. <em>Se não fizer sentido, eu digo.</em></h2>
   <div class="rows">
-    <div class="row"><span class="n">01</span><div><h3>Você solicita uma avaliação</h3><p>Pelo WhatsApp, em uma mensagem.</p></div></div>
-    <div class="row"><span class="n">02</span><div><h3>Uma conversa rápida por telefone</h3><p>Pra eu entender sua clínica, sua especialidade e o momento de vocês.</p></div></div>
+    <div class="row"><span class="n">01</span><div><h3>Você responde a avaliação</h3><p>Sete perguntas rápidas, em menos de 2 minutos.</p></div></div>
+    <div class="row"><span class="n">02</span><div><h3>Uma conversa rápida</h3><p>Pra eu entender sua clínica, sua especialidade e o momento de vocês.</p></div></div>
     <div class="row"><span class="n">03</span><div><h3>A reunião do plano</h3><p>Eu apresento o diagnóstico, os canais prioritários e o plano inicial de implantação.</p></div></div>
     <div class="row"><span class="n">04</span><div><h3>Contrato e início</h3><p>Contrato assinado, acessos liberados e começamos a estruturar.</p></div></div>
   </div>
   <div class="stack" style="margin-top:32px;align-items:flex-start">
-    <a class="cta" href="https://wa.me/5575999110059" target="_blank" rel="noopener">Solicitar uma avaliação da minha clínica</a>
+    <a class="cta" data-form href="https://forms.portogrowth.com.br/f/fluxo-privado?origem=pagina-fluxo-privado">Solicitar uma avaliação da minha clínica</a>
     <p class="phone">WhatsApp: <span>(75) 99911-0059</span></p>
   </div>
 </section>
@@ -312,7 +312,7 @@ fbq('track', 'PageView');
   <div class="stack">
     <h2>Daqui a 6 meses, sua agenda vai ter um sistema por trás. <em>Ou vai continuar dependendo de sorte.</em></h2>
     <p class="sign">Matheus</p>
-    <a class="cta" href="https://wa.me/5575999110059" target="_blank" rel="noopener">Quero solicitar uma avaliação</a>
+    <a class="cta" data-form href="https://forms.portogrowth.com.br/f/fluxo-privado?origem=pagina-fluxo-privado">Quero solicitar uma avaliação</a>
     <p class="phone">WhatsApp: <span>(75) 99911-0059</span></p>
   </div>
 </section>
@@ -336,6 +336,16 @@ fbq('track', 'PageView');
     });
   },{rootMargin:'-40% 0px -55% 0px'});
   ids.forEach(function(id){var el=document.getElementById(id);if(el)io.observe(el)});
+})();
+</script>
+<script>
+(function(){
+  var q=new URLSearchParams(location.search);
+  document.querySelectorAll('a[data-form]').forEach(function(a){
+    var u=new URL(a.href);
+    q.forEach(function(v,k){ if(!u.searchParams.has(k)) u.searchParams.set(k,v); });
+    a.href=u.toString();
+  });
 })();
 </script>
 </body>
