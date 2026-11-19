@@ -1,0 +1,321 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Porto Start | Porto Growth &amp; Performance</title>
+<meta name="description" content="Implantação da estrutura inicial de captação de pacientes particulares: Perfil no Google, página, Google Ads, CRM e treinamento da equipe.">
+<meta name="robots" content="noindex, nofollow">
+<link rel="canonical" href="https://portogrowth.com.br/porto-start/">
+<meta property="og:title" content="Porto Start">
+<meta property="og:description" content="A Porto implanta a base de captação do seu consultório. Sua equipe opera.">
+<meta property="og:url" content="https://portogrowth.com.br/porto-start/">
+<meta property="og:image" content="https://portogrowth.com.br/logo-branco.png">
+<link rel="icon" href="/favicon.ico" sizes="any">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<meta name="theme-color" content="#110510">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Inter:wght@300;400;500;600&display=swap">
+<style>
+/* Layout: carta longa numa coluna estreita, fundo berinjela quase preto, índice fixo à esquerda no desktop. Uma escolha só de visual, escura. */
+:root{
+  --bg:#110510;
+  --bg-2:#1a0918;
+  --line:#2e1529;
+  --fg:#f6eef3;
+  --mute:#b9a5b2;
+  --dim:#7d6878;
+  --coral:#ff6f45;
+  --coral-ink:#1a0a05;
+  --serif:'Instrument Serif',Georgia,'Times New Roman',serif;
+  --sans:Inter,system-ui,-apple-system,'Segoe UI',sans-serif;
+  color-scheme:dark;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+body{background:var(--bg);color:var(--fg);font-family:var(--sans);font-size:17px;line-height:1.7;font-weight:300;-webkit-font-smoothing:antialiased}
+a{color:inherit}
+:focus-visible{outline:2px solid var(--coral);outline-offset:3px;border-radius:2px}
+
+.wrap{padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px))}
+.col{max-width:640px;margin:0 auto}
+
+/* índice lateral */
+.toc{display:none}
+@media (min-width:1180px){
+  .toc{display:block;position:fixed;top:calc(env(safe-area-inset-top,0px) + 96px);left:max(24px,env(safe-area-inset-left,0px));width:220px;font-size:14px;line-height:1.35}
+  .toc a{display:block;text-decoration:none;color:var(--dim);padding:8px 0 8px 18px;border-left:2px solid var(--line);transition:color .2s,border-color .2s}
+  .toc a:hover{color:var(--fg)}
+  .toc a.on{color:var(--fg);border-left-color:var(--coral)}
+  .toc a.top{color:var(--coral);text-transform:uppercase;letter-spacing:.08em;font-size:12px;font-weight:500}
+  .toc a.sub{padding-left:32px}
+}
+
+section{padding-block:72px;border-top:1px solid var(--line)}
+section:first-of-type{border-top:0}
+.eyebrow{font-size:11px;letter-spacing:.32em;text-transform:uppercase;color:var(--dim);font-weight:500;margin:0 0 20px}
+h1,h2{font-family:var(--serif);font-weight:400;text-wrap:balance;margin:0;letter-spacing:-.01em}
+h1{font-size:clamp(44px,8vw,76px);line-height:1.02}
+h2{font-size:clamp(34px,5.4vw,48px);line-height:1.08;margin-bottom:28px}
+h1 em,h2 em{font-style:italic;color:var(--mute)}
+p{margin:0}
+.stack{display:flex;flex-direction:column;gap:18px}
+.lead{font-size:19px;color:var(--mute)}
+.mute{color:var(--mute)}
+strong,.hl{color:var(--fg);font-weight:500}
+.punch{font-family:var(--serif);font-size:30px;line-height:1.2;color:var(--fg)}
+.punch em{color:var(--coral);font-style:italic}
+
+/* hero */
+.hero{padding-block:56px 72px;text-align:left}
+.logo{height:26px;width:auto;display:block;margin-bottom:64px;opacity:.95}
+.hero .lead{margin-top:28px;max-width:540px}
+
+/* faixa de números */
+.strip{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:12px;padding-block:36px;border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+.strip div{min-width:0}
+.strip b{display:block;font-family:var(--serif);font-weight:400;font-size:40px;line-height:1;color:var(--fg)}
+.strip span{display:block;margin-top:8px;font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:var(--dim);line-height:1.4}
+@media (max-width:560px){.strip{grid-template-columns:repeat(2,minmax(0,1fr));row-gap:28px}}
+
+/* grade de problemas */
+.grid2{display:grid;grid-template-columns:1fr 1fr;border-top:1px solid var(--line)}
+.grid2 p{padding:18px 18px 18px 0;border-bottom:1px solid var(--line);color:var(--mute);font-size:16px;line-height:1.5;display:flex;gap:12px}
+.grid2 p::before{content:"—";color:var(--dim)}
+.grid2 p:nth-child(odd){border-right:1px solid var(--line)}
+.grid2 p:nth-child(even){padding-left:18px}
+@media (max-width:560px){.grid2{grid-template-columns:1fr}.grid2 p:nth-child(odd){border-right:0}.grid2 p:nth-child(even){padding-left:0}}
+
+.thesis{border-left:2px solid var(--coral);padding:6px 0 6px 22px;font-family:var(--serif);font-size:28px;line-height:1.25}
+
+/* case */
+.case{background:var(--bg-2);border:1px solid var(--line);border-radius:14px;padding:24px;display:flex;flex-direction:column;gap:18px;margin-top:12px}
+.case-head{display:flex;gap:14px;align-items:center}
+.case-head img{width:52px;height:52px;border-radius:50%;object-fit:cover}
+.case-head b{display:block;font-weight:500;color:var(--fg);line-height:1.3}
+.case-head span{font-size:14px;color:var(--dim)}
+.case .shot{border-radius:10px;width:100%;max-width:460px;height:auto;display:block}
+.case .note{font-size:14px;color:var(--dim);line-height:1.5}
+
+/* listas numeradas */
+.rows{border-top:1px solid var(--line)}
+.row{display:grid;grid-template-columns:44px minmax(0,1fr);gap:8px;padding-block:22px;border-bottom:1px solid var(--line)}
+.row .n{font-size:12px;color:var(--coral);letter-spacing:.1em;padding-top:5px;font-variant-numeric:tabular-nums}
+.row h3{margin:0 0 6px;font-size:17px;font-weight:600;color:var(--fg);line-height:1.4}
+.row h3 small{font-weight:400;color:var(--dim);font-size:14px;margin-left:6px}
+.row p{color:var(--mute);font-size:16px;line-height:1.6}
+
+/* lista com seta */
+.arrows{list-style:none;margin:0;padding:0;border-top:1px solid var(--line)}
+.arrows li{padding:15px 0 15px 28px;border-bottom:1px solid var(--line);position:relative;color:var(--mute);font-size:16px;line-height:1.5}
+.arrows li::before{content:"→";position:absolute;left:0;color:var(--coral)}
+.arrows b{color:var(--fg);font-weight:500}
+
+/* preço */
+.price{display:flex;flex-direction:column;gap:6px;padding-block:8px 8px}
+.price .big{font-family:var(--serif);font-size:clamp(64px,12vw,96px);line-height:1;color:var(--fg)}
+.price .big small{font-size:.32em;color:var(--mute);font-family:var(--sans);font-weight:300;margin-left:6px}
+.aside{font-size:15px;color:var(--dim);font-style:italic}
+
+/* CTA */
+.cta{display:inline-flex;align-items:center;justify-content:center;gap:10px;background:var(--coral);color:var(--coral-ink);text-decoration:none;font-weight:600;font-size:15px;letter-spacing:.04em;padding:18px 28px;border-radius:999px;transition:transform .15s,box-shadow .15s;text-align:center}
+.cta:hover{transform:translateY(-1px);box-shadow:0 10px 30px -10px rgba(255,111,69,.6)}
+.cta.ghost{background:transparent;color:var(--fg);border:1px solid var(--coral)}
+.cta.ghost:hover{background:rgba(255,111,69,.08);box-shadow:none}
+.alt{margin-top:40px;padding:24px;border:1px solid var(--line);border-radius:14px;display:flex;flex-direction:column;gap:14px;align-items:flex-start}
+.alt h3{margin:0;font-family:var(--serif);font-weight:400;font-size:26px;line-height:1.2;color:var(--fg)}
+.phone{font-size:14px;color:var(--dim)}
+.phone span{color:var(--mute);user-select:all}
+
+/* FAQ */
+.faq{border-top:1px solid var(--line)}
+.faq div{padding-block:22px;border-bottom:1px solid var(--line)}
+.faq h3{margin:0 0 8px;font-size:17px;font-weight:600;line-height:1.4}
+.faq p{color:var(--mute);font-size:16px;line-height:1.6}
+
+.final{text-align:center;padding-block:96px 120px}
+.final h2{margin-bottom:12px}
+.final .stack{align-items:center}
+.sign{font-family:var(--serif);font-style:italic;font-size:30px;color:var(--fg)}
+footer{padding-block:28px;border-top:1px solid var(--line);font-size:12px;color:var(--dim);letter-spacing:.1em;text-transform:uppercase;text-align:center}
+</style>
+<script>
+!function(f,b,e,v,n,t,s)
+{if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+n.queue=[];t=b.createElement(e);t.async=!0;
+t.src=v;s=b.getElementsByTagName(e)[0];
+s.parentNode.insertBefore(t,s)}(window, document,'script',
+'https://connect.facebook.net/en_US/fbevents.js');
+fbq('init', '1082635481276358');
+fbq('track', 'PageView');
+</script>
+<noscript><img height="1" width="1" style="display:none" src="https://www.facebook.com/tr?id=1082635481276358&amp;ev=PageView&amp;noscript=1"></noscript>
+</head>
+<body>
+<nav class="toc" aria-label="Índice">
+  <a class="top" href="#inicio">Porto Start</a>
+  <a class="sub" href="#como">Como funciona</a>
+  <a class="sub" href="#incluso">O que está incluso</a>
+  <a class="sub" href="#para-quem">Para quem é</a>
+  <a class="sub" href="#quem">Quem implementa</a>
+  <a class="sub" href="#investimento">Investimento</a>
+  <a class="sub" href="#comecar">Como começar</a>
+  <a class="sub" href="#perguntas">Perguntas frequentes</a>
+</nav>
+
+<main class="wrap">
+<div class="col">
+
+<section class="hero" id="inicio">
+  <img class="logo" src="/logo-branco.png" alt="Porto Growth &amp; Performance">
+  <p class="eyebrow">Porto Start</p>
+  <h1>Nem todo consultório precisa começar com uma assessoria mensal. <em>A Porto implanta a base. Sua equipe opera.</em></h1>
+  <p class="lead">Doutor(a), aqui é o Matheus, da Porto Growth. Se a sua prioridade é colocar no ar a estrutura inicial de captação de pacientes particulares e a sua equipe pode tocar o dia a dia, eu implemento essa base pra você, de uma vez.</p>
+</section>
+
+<section id="diagnostico">
+  <p class="eyebrow">O diagnóstico</p>
+  <h2>Você quer captar particular. <em>Mas falta a estrutura básica.</em></h2>
+  <div class="stack">
+    <p class="lead">O paciente procura no Google e não te encontra direito. Quando encontra, não tem uma página clara pra onde ir. E o contato que chega se perde no meio das conversas do WhatsApp.</p>
+    <div class="grid2">
+      <p>Perfil no Google incompleto ou inexistente.</p>
+      <p>Nenhuma página pra onde mandar o paciente.</p>
+      <p>Contatos espalhados no WhatsApp, sem registro.</p>
+      <p>Recepção sem um fluxo combinado de atendimento.</p>
+    </div>
+    <p class="mute">Cada ferramenta solta, ou nenhuma ferramenta. Antes de pensar em escalar, a base precisa existir e estar ligada.</p>
+    <p class="thesis">Sua estrutura inicial de captação particular, implementada para a sua equipe operar.</p>
+  </div>
+</section>
+
+<section id="como">
+  <p class="eyebrow">Como funciona</p>
+  <h2>Quatro etapas. <em>Uma entrega com começo, meio e fim.</em></h2>
+  <div class="rows">
+    <div class="row"><span class="n">01</span><div><h3>Diagnóstico</h3><p>Uma reunião inicial pra entender sua especialidade, os serviços prioritários, a sua região, os diferenciais que dá pra comprovar, as restrições éticas da publicidade médica e os acessos necessários.</p></div></div>
+    <div class="row"><span class="n">02</span><div><h3>Presença e página</h3><p>Configuração ou otimização do seu Perfil da Empresa no Google, quando ele for elegível, e uma página objetiva pra o paciente entrar em contato ou agendar.</p></div></div>
+    <div class="row"><span class="n">03</span><div><h3>Captação e registro</h3><p>Uma campanha inicial no Google Ads, a mensuração básica configurada e um CRM simples, com as etapas de contato e agendamento pra recepção registrar cada paciente.</p></div></div>
+    <div class="row"><span class="n">04</span><div><h3>Testes e passagem</h3><p>Testo a página, os links, o recebimento dos contatos e a mensuração. Depois treino a sua equipe, entrego os acessos documentados e você assina o aceite da entrega.</p></div></div>
+  </div>
+  <p class="aside" style="margin-top:20px">O prazo é combinado no contrato e depende do envio de materiais, aprovações e acessos.</p>
+</section>
+
+<section id="incluso">
+  <p class="eyebrow">O que está incluso</p>
+  <h2>Tudo o que a base precisa <em>pra funcionar no primeiro dia.</em></h2>
+  <ul class="arrows">
+    <li><b>Diagnóstico e plano de implementação</b></li>
+    <li><b>Perfil da Empresa no Google:</b> configurado ou otimizado, quando elegível.</li>
+    <li><b>Uma página de captação:</b> objetiva, com contato e agendamento.</li>
+    <li><b>Uma campanha inicial no Google Ads:</b> com mensuração básica.</li>
+    <li><b>Um CRM simples:</b> pra registrar contatos e agendamentos.</li>
+    <li><b>Treinamento da equipe:</b> o fluxo de contato e o CRM demonstrados à recepção antes da entrega.</li>
+    <li><b>Pasta de entrega:</b> acessos, documentação e orientações num lugar só.</li>
+  </ul>
+  <div class="alt">
+    <p class="eyebrow" style="margin:0">O que não está incluso</p>
+    <p class="mute">Gestão mensal das campanhas, otimização contínua, produção de vídeo e anúncios em vários canais. O Porto Start é uma implantação: depois da entrega, a operação fica com a sua equipe.</p>
+  </div>
+</section>
+
+<section id="para-quem">
+  <p class="eyebrow">Para quem é</p>
+  <h2>Pra quem quer a base pronta <em>sem assessoria mensal.</em></h2>
+  <ul class="arrows">
+    <li>Você é médico e atende pacientes particulares.</li>
+    <li>Você quer começar ou organizar a captação digital do consultório.</li>
+    <li>Sua equipe tem como operar a estrutura depois da entrega.</li>
+    <li>Você tem orçamento separado pros anúncios e pras ferramentas.</li>
+  </ul>
+</section>
+
+<section id="quem">
+  <p class="eyebrow">Quem implementa</p>
+  <h2>Matheus Porto, <em>fundador da Porto Growth.</em></h2>
+  <div class="stack mute">
+    <p>Antes do mercado médico, trabalhei com tráfego em nichos muito diferentes: imobiliária de alto, médio padrão e econômica, clínicas de estética. No mercado médico, aprendi que o anúncio só traz o contato. O que decide se ele vira consulta é a página, o registro e o atendimento que vêm depois.</p>
+    <p>O Porto Start leva essa lógica pra uma implantação com escopo fechado: anúncio, página, registro e atendimento ligados desde o começo.</p>
+    <p><strong>Estou começando o Porto Start com poucos projetos por vez</strong>, pra acompanhar cada implantação de perto.</p>
+  </div>
+</section>
+
+<section id="investimento">
+  <p class="eyebrow">Investimento</p>
+  <div class="price">
+    <span class="big">R$ 4.800</span>
+    <p class="mute">Por implementação, com escopo fechado em contrato. Parcelamento no cartão disponível, com as condições apresentadas antes de fechar.</p>
+  </div>
+  <p class="aside" style="margin-top:20px">A verba dos anúncios é paga por você direto ao Google. Domínio, hospedagem e ferramentas pagas também ficam à parte.</p>
+  <div class="alt">
+    <p class="eyebrow" style="margin:0">Prefere acompanhamento contínuo?</p>
+    <h3>Conheça o Método Fluxo Privado.</h3>
+    <p class="mute">Se você quer que a Porto implante e também acompanhe tudo todo mês, com relatório semanal e reunião mensal, o caminho é o Fluxo Privado.</p>
+    <a class="cta ghost" href="/fluxo-privado/">Conhecer o Fluxo Privado</a>
+  </div>
+</section>
+
+<section id="comecar">
+  <p class="eyebrow">Como começar</p>
+  <h2>Uma conversa pra ver se faz sentido. <em>Escopo fechado antes de começar.</em></h2>
+  <div class="rows">
+    <div class="row"><span class="n">01</span><div><h3>Você me chama no WhatsApp</h3><p>Em uma mensagem.</p></div></div>
+    <div class="row"><span class="n">02</span><div><h3>Uma conversa de diagnóstico</h3><p>Pra confirmar se o Porto Start é o caminho certo pro seu consultório.</p></div></div>
+    <div class="row"><span class="n">03</span><div><h3>Proposta e contrato</h3><p>Com o escopo fechado: o que entra, o que não entra e quem faz cada parte.</p></div></div>
+    <div class="row"><span class="n">04</span><div><h3>Implantação e entrega</h3><p>Briefing, acessos, as quatro etapas e o treinamento da sua equipe.</p></div></div>
+  </div>
+  <div class="stack" style="margin-top:32px;align-items:flex-start">
+    <a class="cta" href="https://wa.me/5575999110059?text=Ol%C3%A1%2C%20Matheus!%20Quero%20saber%20mais%20sobre%20o%20Porto%20Start." target="_blank" rel="noopener">Quero implantar o Porto Start</a>
+    <p class="phone">WhatsApp: <span>(75) 99911-0059</span></p>
+  </div>
+</section>
+
+<section id="perguntas">
+  <p class="eyebrow">Perguntas frequentes</p>
+  <h2>Perguntas que você pode <em>estar se fazendo.</em></h2>
+  <div class="faq">
+    <div><h3>Depois da entrega, a Porto continua cuidando das campanhas?</h3><p>Não. O Porto Start é uma implantação. Depois do aceite, a otimização e a manutenção ficam com a sua equipe. Se você quiser acompanhamento contínuo, isso é outro contrato, o <a href="/fluxo-privado/">Método Fluxo Privado</a>.</p></div>
+    <div><h3>Quem paga os anúncios e as ferramentas?</h3><p>Você. A verba dos anúncios vai direto pro Google, e domínio, hospedagem e ferramentas pagas ficam à parte do valor da implementação.</p></div>
+    <div><h3>As contas ficam no nome de quem?</h3><p>A preferência é que as contas fiquem no seu nome, e tudo é documentado na entrega: acessos, responsabilidades e orientações.</p></div>
+    <div><h3>Vou aparecer no Google e ter mais pacientes?</h3><p>Ninguém pode garantir posição no Google, aprovação de anúncios ou número de pacientes. O que você recebe é a estrutura implementada, testada e entregue pra sua equipe operar. O Perfil da Empresa também depende das regras e da elegibilidade do Google.</p></div>
+    <div><h3>Os anúncios respeitam as regras da publicidade médica?</h3><p>Sim. As mensagens passam pela sua validação, e nenhuma peça promete resultado de tratamento.</p></div>
+    <div><h3>Funciona pra minha especialidade?</h3><p>O Porto Start foi feito pra médicos que atendem particular. Na conversa de diagnóstico eu te digo com honestidade se faz sentido pro seu caso.</p></div>
+  </div>
+</section>
+
+<section class="final">
+  <div class="stack">
+    <h2>A base de captação do seu consultório, <em>pronta pra sua equipe operar.</em></h2>
+    <p class="sign">Matheus</p>
+    <a class="cta" href="https://wa.me/5575999110059?text=Ol%C3%A1%2C%20Matheus!%20Quero%20saber%20mais%20sobre%20o%20Porto%20Start." target="_blank" rel="noopener">Quero implantar o Porto Start</a>
+    <p class="phone">WhatsApp: <span>(75) 99911-0059</span></p>
+  </div>
+</section>
+
+</div>
+</main>
+<footer class="wrap">Porto Growth &amp; Performance · Feira de Santana, BA</footer>
+
+<script>
+(function(){
+  var links=[].slice.call(document.querySelectorAll('.toc a'));
+  var map={};links.forEach(function(a){map[a.getAttribute('href').slice(1)]=a});
+  var ids=Object.keys(map).concat(['diagnostico']);
+  if(!('IntersectionObserver' in window))return;
+  var io=new IntersectionObserver(function(es){
+    es.forEach(function(e){
+      if(!e.isIntersecting)return;
+      var id=e.target.id==='diagnostico'?'inicio':e.target.id;
+      links.forEach(function(a){a.classList.remove('on')});
+      if(map[id])map[id].classList.add('on');
+    });
+  },{rootMargin:'-40% 0px -55% 0px'});
+  ids.forEach(function(id){var el=document.getElementById(id);if(el)io.observe(el)});
+})();
+</script>
+</body>
+</html>
