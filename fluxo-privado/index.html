@@ -158,6 +158,17 @@ footer{padding-block:28px;border-top:1px solid var(--line);font-size:12px;color:
 footer a{color:inherit}
 .cookie{position:fixed;left:0;right:0;bottom:0;z-index:20;background:var(--bg-2);border-top:1px solid var(--line);display:flex;gap:16px;align-items:center;justify-content:center;flex-wrap:wrap;padding:14px max(16px,env(safe-area-inset-right,0px)) calc(14px + env(safe-area-inset-bottom,0px)) max(16px,env(safe-area-inset-left,0px));font-size:13px;color:var(--mute)}
 .cookie p{margin:0}
+@media (max-width:560px){
+  .hero{padding-block:28px 48px}
+  .logo{margin-bottom:32px;height:22px}
+  .hero .eyebrow{margin-bottom:14px}
+  h1{font-size:38px}
+  .hero .lead{font-size:16px;margin-top:16px;line-height:1.6}
+  .hero-cta{margin-top:22px}
+  .hero-cta .cta{width:100%}
+  .cookie{flex-wrap:nowrap;gap:12px;justify-content:space-between;font-size:12px;padding-top:10px;padding-bottom:calc(10px + env(safe-area-inset-bottom,0px))}
+  .cookie button{padding:6px 14px;flex:none}
+}
 .cookie button{background:transparent;color:var(--fg);border:1px solid var(--coral);border-radius:999px;padding:8px 18px;font:inherit;cursor:pointer}
 </style>
 <script>
