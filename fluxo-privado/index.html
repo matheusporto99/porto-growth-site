@@ -140,6 +140,25 @@ strong,.hl{color:var(--fg);font-weight:500}
 .final .stack{align-items:center}
 .sign{font-family:var(--serif);font-style:italic;font-size:30px;color:var(--fg)}
 footer{padding-block:28px;border-top:1px solid var(--line);font-size:12px;color:var(--dim);letter-spacing:.1em;text-transform:uppercase;text-align:center}
+.hero-cta{margin-top:32px;display:flex;flex-direction:column;gap:12px;align-items:flex-start}
+.cta-note{font-size:14px;color:var(--dim)}
+.invest{margin:0;border-top:1px solid var(--line)}
+.invest div{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.2fr);gap:12px;padding-block:16px;border-bottom:1px solid var(--line)}
+.invest dt{color:var(--mute);font-size:16px}
+.invest dd{margin:0;color:var(--fg);font-weight:500;font-size:17px}
+.invest dd span{display:block;font-weight:300;font-size:14px;color:var(--dim);margin-top:2px}
+.invest .total dt,.invest .total dd{color:var(--fg)}
+.invest .total dd{font-family:var(--serif);font-weight:400;font-size:28px;line-height:1.1}
+@media (max-width:560px){.invest div{grid-template-columns:1fr;gap:4px}}
+.others{padding-block:56px 72px}
+.other{display:flex;flex-direction:column;gap:12px;align-items:flex-start;padding-block:22px;border-top:1px solid var(--line)}
+.other h3{margin:0;font-family:var(--serif);font-weight:400;font-size:24px;line-height:1.2}
+.other h3 span{display:block;font-family:var(--sans);font-size:14px;color:var(--coral);margin-top:4px}
+.other p{font-size:15px;line-height:1.6}
+footer a{color:inherit}
+.cookie{position:fixed;left:0;right:0;bottom:0;z-index:20;background:var(--bg-2);border-top:1px solid var(--line);display:flex;gap:16px;align-items:center;justify-content:center;flex-wrap:wrap;padding:14px max(16px,env(safe-area-inset-right,0px)) calc(14px + env(safe-area-inset-bottom,0px)) max(16px,env(safe-area-inset-left,0px));font-size:13px;color:var(--mute)}
+.cookie p{margin:0}
+.cookie button{background:transparent;color:var(--fg);border:1px solid var(--coral);border-radius:999px;padding:8px 18px;font:inherit;cursor:pointer}
 </style>
 <script>
 !function(f,b,e,v,n,t,s)
@@ -154,10 +173,19 @@ fbq('init', '1082635481276358');
 fbq('track', 'PageView');
 </script>
 <noscript><img height="1" width="1" style="display:none" src="https://www.facebook.com/tr?id=1082635481276358&amp;ev=PageView&amp;noscript=1"></noscript>
+<!-- Google Analytics 4 -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-VWQHGSD4GK"></script>
+<script>
+window.dataLayer=window.dataLayer||[];
+function gtag(){dataLayer.push(arguments);}
+gtag('js',new Date());
+gtag('config','G-VWQHGSD4GK');
+</script>
 </head>
 <body>
 <nav class="toc" aria-label="Índice">
   <a class="top" href="#inicio">Convite privado</a>
+  <a class="sub" href="#diagnostico">O diagnóstico</a>
   <a class="sub" href="#quem">Quem está dizendo isso</a>
   <a class="sub" href="#metodo">O Método Fluxo Privado</a>
   <a class="sub" href="#meses">Como funcionam os 6 meses</a>
@@ -165,6 +193,7 @@ fbq('track', 'PageView');
   <a class="sub" href="#investimento">Investimento</a>
   <a class="sub" href="#comecar">Como começar</a>
   <a class="sub" href="#perguntas">Perguntas frequentes</a>
+  <a class="sub" href="#outros">Outros caminhos</a>
 </nav>
 
 <main class="wrap">
@@ -174,15 +203,18 @@ fbq('track', 'PageView');
   <img class="logo" src="/logo-branco.png" alt="Porto Growth &amp; Performance">
   <p class="eyebrow">Convite privado · Método Fluxo Privado</p>
   <h1>Sua agenda depende de indicação e de sorte. <em>Vamos colocar um sistema por trás dela.</em></h1>
-  <p class="lead">Doutor(a), aqui é o Matheus, da Porto Growth. Se você atende particular e ninguém sabe dizer se o seu anúncio funciona, esta página foi escrita pra você.</p>
+  <p class="lead">Para médicos especialistas que atendem particular. O Método Fluxo Privado conecta posicionamento, anúncios, atendimento e indicadores para organizar a sua captação e acompanhar cada etapa, do anúncio à consulta.</p>
+  <div class="hero-cta">
+    <a class="cta" data-form data-cta="hero" href="https://forms.portogrowth.com.br/f/fluxo-privado?origem=pagina-fluxo-privado">Solicitar avaliação da minha clínica</a>
+    <p class="cta-note">7 perguntas, menos de 2 minutos. Depois a gente conversa, sem compromisso.</p>
+  </div>
 </section>
 
 <section id="diagnostico">
   <p class="eyebrow">O diagnóstico</p>
-  <h2>O paciente particular mudou. <em>A captação da maioria das clínicas não.</em></h2>
+  <h2>O paciente particular pesquisa antes de marcar. <em>Muita clínica ainda capta como se ele não pesquisasse.</em></h2>
   <div class="stack">
-    <p class="lead">Antes de marcar, ele pesquisa. Compara. Assiste vídeo. Lê avaliação. Manda mensagem pra três clínicas e marca com quem responde melhor.</p>
-    <p class="mute">Ao mesmo tempo, qualquer clínica faz anúncio, qualquer médico grava vídeo e todo perfil fala em "atendimento humanizado". Quando todo mundo diz a mesma coisa, <strong>o paciente escolhe pelo preço. Ou pela distância.</strong></p>
+    <p class="lead">Muitos pacientes comparam perfis, leem avaliações e mandam mensagem para mais de uma clínica. Quando a comunicação é genérica, a decisão tende a ir para o preço ou para a distância.</p>
     <p class="mute">E o problema quase nunca está num lugar só:</p>
     <div class="grid2">
       <p>O posicionamento é genérico.</p>
@@ -191,7 +223,6 @@ fbq('track', 'PageView');
       <p>No fim do mês ninguém sabe quanto custou cada consulta.</p>
     </div>
     <p class="punch">Você sabe quantos contatos chegaram no mês. <em>Sabe quantos viraram tratamento?</em></p>
-    <p class="mute">Cada peça funciona sozinha. Nenhuma funciona junto. Por isso mais contato não resolve.</p>
     <p class="thesis">A aquisição de pacientes particulares funciona melhor quando posicionamento, anúncios, atendimento e indicadores trabalham juntos.</p>
   </div>
 </section>
@@ -200,14 +231,10 @@ fbq('track', 'PageView');
   <p class="eyebrow">Quem está dizendo isso</p>
   <h2>Eu não comecei no marketing. <em>Comecei no balcão.</em></h2>
   <div class="stack mute">
-    <p>Eu sou Matheus Porto, de Feira de Santana, fundador da Porto Growth &amp; Performance.</p>
-    <p>Trabalhei uns dois anos e meio no balcão e no depósito de uma loja de tintas. Numa viagem a trabalho pra ajudar a abrir uma filial, dormi no chão dos fundos da loja em obra. Voltei sabendo que queria outra coisa.</p>
-    <p>Saí com um único cliente de marketing, que pagava R$ 250 por mês. Sem reserva. Estudando Economia à noite.</p>
-    <p>Dois meses depois de casar, perdi vários contratos de uma vez e passei meses quase sem entrada de dinheiro. Aprendi do jeito difícil que contrato claro e acompanhamento importam tanto quanto o anúncio.</p>
-    <p>Por anos atendi negócios de todo tipo: imobiliária vendendo casa de alto padrão, de médio padrão e econômica, clínicas de estética. Aprendi a vender coisas muito diferentes pra públicos muito diferentes.</p>
-    <p>Até que o Dr. Luciano me chamou pra trabalhar com ele. Foi assim que entrei no mercado médico. E foi ali que vi o que muda tudo:</p>
-    <p class="punch">O anúncio traz o contato. <em>Mas é o posicionamento, a recepção e o acompanhamento que decidem se ele vira consulta.</em></p>
-    <p>Hoje a Porto atende médicos especialistas que trabalham com pacientes particulares. <strong>E a carteira cresceu do jeito que não dá pra fingir: médico indicando médico.</strong></p>
+    <p>Sou Matheus Porto, de Feira de Santana, fundador da Porto Growth &amp; Performance.</p>
+    <p>Comecei longe do marketing, no balcão de uma loja de tintas. No marketing, atendi negócios muito diferentes, de imobiliárias a clínicas de estética, até o Dr. Luciano me chamar para trabalhar com médicos.</p>
+    <p class="punch">O anúncio traz o contato. <em>Mas são o posicionamento, a recepção e o acompanhamento que decidem se ele vira consulta.</em></p>
+    <p>Hoje a Porto atende médicos especialistas com pacientes particulares, e a carteira cresceu por indicação entre médicos.</p>
   </div>
 
   <div class="case">
@@ -218,7 +245,7 @@ fbq('track', 'PageView');
     <p class="mute">Em julho de 2026, ela me mandou esta mensagem:</p>
     <img class="shot" src="/print-monique-julho.jpg" alt="Mensagem de WhatsApp da Dra. Monique: De julho tivemos 18 consultas e 11 tratamentos fechados delas" width="611" height="138">
     <p><strong>18 consultas no mês. 11 viraram tratamento.</strong> <span class="mute">É isso que eu acompanho: não só o contato, mas a consulta e o tratamento fechado.</span></p>
-    <p class="note">Resultado de um mês de uma clínica. Não é promessa de resultado.</p>
+    <p class="note">A mensagem traz o total de consultas e tratamentos da clínica naquele mês, sem separar por canal. É o resultado de um mês de uma clínica, não uma promessa.</p>
   </div>
 </section>
 
@@ -228,9 +255,9 @@ fbq('track', 'PageView');
   <p class="lead" style="margin-bottom:28px">Eu não vendo "gestão de tráfego". Gestor de tráfego entrega clique. O Fluxo Privado conecta quatro etapas, na ordem em que o paciente passa por elas.</p>
   <div class="rows">
     <div class="row"><span class="n">01</span><div><h3>Tese de Autoridade <small>por que escolher você</small></h3><p>Antes de qualquer anúncio, eu descubro o que te diferencia de verdade: seus diferenciais, o paciente que você quer atender mais, a forma como você trata. Isso vira um documento estratégico que orienta tudo o que a clínica comunica. Você aprova cada linha.</p></div></div>
-    <div class="row"><span class="n">02</span><div><h3>Captação Ativa <small>como o paciente te encontra</small></h3><p>Planejamento, implantação e otimização de campanhas no Meta Ads e/ou Google Ads, nos canais que fazem sentido pra sua especialidade e região. Os roteiros dos anúncios são contínuos, sempre dentro das regras da publicidade médica.</p></div></div>
-    <div class="row"><span class="n">03</span><div><h3>Gestão de Conversão <small>como o contato vira consulta</small></h3><p>Um script de atendimento feito pra sua clínica, treinamento da sua recepção e um jeito organizado de registrar contatos e agendamentos. É aqui que o dinheiro que você já investe em anúncio para de vazar.</p></div></div>
-    <div class="row"><span class="n">04</span><div><h3>Painel de Resultados <small>como você enxerga o que acontece</small></h3><p>Toda semana, investimento, contatos, custo por contato e agendamentos. Com os dados da clínica, entram comparecimento, consultas realizadas e taxa de conversão. Você para de achar e passa a saber.</p></div></div>
+    <div class="row"><span class="n">02</span><div><h3>Captação Ativa <small>como o paciente te encontra</small></h3><p>Planejamento, implantação e otimização de campanhas no Meta Ads e/ou Google Ads, em até dois canais, conforme a sua especialidade e região. Roteiros e textos dos anúncios contínuos, dentro do escopo e das regras da publicidade médica. Gravação e edição de vídeo não estão incluídas.</p></div></div>
+    <div class="row"><span class="n">03</span><div><h3>Gestão de Conversão <small>como o contato vira consulta</small></h3><p>Um script de atendimento feito para a sua clínica, um treinamento inicial da recepção e um jeito organizado de registrar contatos e agendamentos. A rotina diária da recepção continua com a sua equipe.</p></div></div>
+    <div class="row"><span class="n">04</span><div><h3>Painel de Resultados <small>como você enxerga o que acontece</small></h3><p>Toda semana: investimento, contatos, custo por contato e agendamentos. Comparecimento, consultas e conversões entram quando a clínica registra esses dados. Uma reunião por mês para decidir o próximo passo com o número na mesa.</p></div></div>
   </div>
 </section>
 
@@ -243,6 +270,7 @@ fbq('track', 'PageView');
     <div class="row"><span class="n">D61–90</span><div><h3>Consolidar</h3><p>Análise dos primeiros indicadores, ajustes e prioridades.</p></div></div>
     <div class="row"><span class="n">M4–6</span><div><h3>Evoluir</h3><p>Otimização contínua, relatório semanal e reunião estratégica mensal.</p></div></div>
   </div>
+  <p class="aside" style="margin-top:20px">Os prazos são de estruturação e acompanhamento, não de resultado comercial.</p>
 </section>
 
 <section id="recebe">
@@ -251,10 +279,10 @@ fbq('track', 'PageView');
   <ul class="arrows">
     <li><b>Tese de Autoridade:</b> o documento do seu posicionamento, construído e aprovado por você.</li>
     <li><b>Campanhas de anúncio:</b> planejamento, implantação e otimização em até dois canais.</li>
-    <li><b>Roteiros contínuos:</b> quantos a campanha precisar, revisados para a publicidade médica.</li>
+    <li><b>Roteiros contínuos:</b> conforme a campanha precisar, revisados para a publicidade médica.</li>
     <li><b>Script de atendimento:</b> personalizado para a sua recepção.</li>
     <li><b>Treinamento da recepção:</b> um treinamento inicial com a sua equipe.</li>
-    <li><b>Relatório semanal:</b> os números da semana, do anúncio até a consulta.</li>
+    <li><b>Relatório semanal:</b> os números da semana, do anúncio até o agendamento.</li>
     <li><b>Reunião estratégica mensal:</b> uma hora comigo pra ler os números e decidir o próximo passo.</li>
     <li><b>Suporte no WhatsApp:</b> em dias úteis, em horário comercial.</li>
   </ul>
@@ -262,20 +290,19 @@ fbq('track', 'PageView');
 
 <section id="investimento">
   <p class="eyebrow">Investimento</p>
-  <div class="price">
-    <span class="big">R$ 3.000<small>/mês</small></span>
-    <p class="mute">Contrato de 6 meses. A verba de anúncios é separada e paga por você direto às plataformas, com recomendação inicial a partir de R$ 3.000 por mês, ajustada à sua especialidade e região.</p>
-  </div>
-  <div class="stack" style="margin-top:28px">
+  <h2>O investimento completo, <em>sem letra miúda.</em></h2>
+  <dl class="invest">
+    <div><dt>Método Fluxo Privado</dt><dd>R$ 3.000/mês <span>gestão e implementação</span></dd></div>
+    <div><dt>Verba de anúncios</dt><dd>a partir de R$ 3.000/mês <span>paga direto ao Meta e ao Google, ajustada à especialidade e à região</span></dd></div>
+    <div class="total"><dt>Investimento inicial recomendado</dt><dd>cerca de R$ 6.000/mês</dd></div>
+    <div><dt>Contrato inicial</dt><dd>6 meses</dd></div>
+  </dl>
+  <div class="stack" style="margin-top:24px">
+    <p class="aside">Custos externos, como ferramentas ou produção de vídeo, ficam à parte quando existirem.</p>
     <p class="mute">O que eu ofereço é um sistema organizado, medido e acompanhado de perto. Você valida, sua recepção executa e os números mostram o caminho.</p>
-    <p class="aside">Faça a conta: R$ 3.000 por mês é R$ 100 por dia. Pense no valor da sua consulta particular e em quantas consultas a mais por mês pagam esse investimento.</p>
   </div>
-  <div class="alt">
-    <p class="eyebrow" style="margin:0">Ainda não é o momento da operação completa?</p>
-    <h3>Comece pela Consultoria Estratégica.</h3>
-    <p class="mute">Uma sessão de 90 minutos comigo pra descobrir onde sua captação de pacientes particulares está travando, e um plano de 30 dias pra sua equipe executar. Sem precisar contratar anúncios.</p>
-    <p class="punch" style="font-size:26px">R$ 1.200 <em>pagamento único</em></p>
-    <a class="cta ghost" href="/consultoria/">Conhecer a Consultoria Estratégica</a>
+  <div class="stack" style="margin-top:28px;align-items:flex-start">
+    <a class="cta" data-form data-cta="investimento" href="https://forms.portogrowth.com.br/f/fluxo-privado?origem=pagina-fluxo-privado">Solicitar avaliação da minha clínica</a>
   </div>
 </section>
 
@@ -289,7 +316,7 @@ fbq('track', 'PageView');
     <div class="row"><span class="n">04</span><div><h3>Contrato e início</h3><p>Contrato assinado, acessos liberados e começamos a estruturar.</p></div></div>
   </div>
   <div class="stack" style="margin-top:32px;align-items:flex-start">
-    <a class="cta" data-form href="https://forms.portogrowth.com.br/f/fluxo-privado?origem=pagina-fluxo-privado">Solicitar uma avaliação da minha clínica</a>
+    <a class="cta" data-form data-cta="como-comecar" href="https://forms.portogrowth.com.br/f/fluxo-privado?origem=pagina-fluxo-privado">Solicitar avaliação da minha clínica</a>
     <p class="phone">WhatsApp: <span>(75) 99911-0059</span></p>
   </div>
 </section>
@@ -299,52 +326,94 @@ fbq('track', 'PageView');
   <h2>Perguntas que você pode <em>estar se fazendo.</em></h2>
   <div class="faq">
     <div><h3>Funciona pra minha especialidade?</h3><p>O método foi feito pra médicos especialistas que atendem particular. O que muda de uma especialidade pra outra é o posicionamento, o público e os canais, e é exatamente isso que a gente define no diagnóstico. Na avaliação eu te digo com honestidade se faz sentido pro seu caso.</p></div>
-    <div><h3>Em quanto tempo vejo resultado?</h3><p>Os 90 dias são de implantação: o tempo de estruturar, ajustar e consolidar o sistema. Não é prazo de garantia de pacientes. Os primeiros indicadores aparecem no painel desde as primeiras semanas de campanha.</p></div>
+    <div><h3>Em quanto tempo vejo resultado?</h3><p>Os 90 dias são de implantação: o tempo de estruturar, ajustar e consolidar o sistema. Não é prazo de garantia de pacientes. Os primeiros indicadores de anúncio aparecem no relatório desde as primeiras semanas de campanha.</p></div>
     <div><h3>Vou precisar gravar vídeo?</h3><p>Os roteiros são por nossa conta. A gravação fica com a clínica, no formato que for combinado.</p></div>
     <div><h3>Os anúncios respeitam as regras da publicidade médica?</h3><p>Sim. Toda alegação clínica passa pela sua validação, e nenhuma peça promete resultado de tratamento.</p></div>
-    <div><h3>Qual a diferença pra um gestor de tráfego?</h3><p>O gestor de tráfego cuida do anúncio. O Fluxo Privado cuida do anúncio, do motivo pelo qual o paciente te escolhe, da recepção que converte o contato e do número que mostra se tudo isso virou consulta.</p></div>
-    <div><h3>E se eu ainda não estiver pronto pro Fluxo Privado?</h3><p>Comece pela <a href="/consultoria/">Consultoria Estratégica</a>: uma sessão de 90 minutos comigo pra descobrir onde sua captação está travando e sair com um plano de 30 dias pra sua equipe executar.</p></div>
-    <div><h3>O que não está incluso?</h3><p>A operação diária da recepção, treinamentos recorrentes, gestão das suas redes sociais orgânicas, gravação presencial e produção audiovisual ilimitada.</p></div>
+    <div><h3>Qual a diferença pra um gestor de tráfego?</h3><p>O gestor de tráfego cuida do anúncio. O Fluxo Privado cuida do anúncio, do motivo pelo qual o paciente te escolhe, da recepção que atende o contato e dos números de cada etapa.</p></div>
+    <div><h3>E se o Fluxo Privado não for o momento certo?</h3><p>No fim da página tem dois caminhos menores. Na conversa eu te digo com honestidade qual faz sentido.</p></div>
+    <div><h3>O que não está incluso?</h3><p>A operação diária da recepção, treinamentos recorrentes, gestão das suas redes sociais orgânicas, gravação presencial e produção audiovisual.</p></div>
   </div>
 </section>
 
 <section class="final">
   <div class="stack">
-    <h2>Daqui a 6 meses, sua agenda vai ter um sistema por trás. <em>Ou vai continuar dependendo de sorte.</em></h2>
+    <h2>Em 6 meses, sua captação pode ter um processo, números e um próximo passo claro. <em>O primeiro passo leva 2 minutos.</em></h2>
     <p class="sign">Matheus</p>
-    <a class="cta" data-form href="https://forms.portogrowth.com.br/f/fluxo-privado?origem=pagina-fluxo-privado">Quero solicitar uma avaliação</a>
+    <a class="cta" data-form data-cta="final" href="https://forms.portogrowth.com.br/f/fluxo-privado?origem=pagina-fluxo-privado">Solicitar avaliação da minha clínica</a>
     <p class="phone">WhatsApp: <span>(75) 99911-0059</span></p>
+  </div>
+</section>
+
+<section id="outros" class="others">
+  <p class="eyebrow">Outros caminhos</p>
+  <div class="other">
+    <h3>Porto Growth Essencial <span>R$ 2.000/mês</span></h3>
+    <p class="mute">Sua clínica já tem posicionamento e atendimento estruturados e precisa principalmente de gestão profissional dos anúncios? O Essencial inclui gestão de Meta Ads e/ou Google Ads em até dois canais, acompanhamento de contatos e indicadores de captação, relatório mensal e reunião estratégica mensal. Não inclui a Tese de Autoridade, o treinamento da recepção nem a gestão aprofundada do funil. Verba de anúncios à parte.</p>
+    <a class="cta ghost" data-form data-cta="essencial" href="https://forms.portogrowth.com.br/f/essencial?origem=pagina-fluxo-privado-essencial">Solicitar o Essencial</a>
+  </div>
+  <div class="other">
+    <h3>Porto Start <span>R$ 4.800, pagamento único</span></h3>
+    <p class="mute">Prefere começar com uma estrutura implementada e depois assumir a operação? O Start inclui, conforme o escopo, Google Ads, Perfil da Empresa no Google quando aplicável, página de captação, CRM simples, orientação de uso e 30 dias de suporte técnico de transição. Não inclui gestão recorrente das campanhas. Verba e ferramentas externas à parte.</p>
+    <a class="cta ghost" data-form data-cta="porto-start" href="https://forms.portogrowth.com.br/f/porto-start?origem=pagina-fluxo-privado-start">Solicitar o Porto Start</a>
   </div>
 </section>
 
 </div>
 </main>
-<footer class="wrap">Porto Growth &amp; Performance · Feira de Santana, BA</footer>
+<footer class="wrap">Porto Growth &amp; Performance · Feira de Santana, BA · <a href="/politica-de-privacidade/">Política de privacidade</a></footer>
+
+<div class="cookie" id="cookie" hidden>
+  <p>Usamos cookies do Google Analytics e da Meta para medir as visitas. <a href="/politica-de-privacidade/">Política de privacidade</a></p>
+  <button type="button" id="cookie-ok">Entendi</button>
+</div>
 
 <script>
 (function(){
+  // Índice lateral: aceita href relativo (#metodo) ou completo (.../#metodo)
   var links=[].slice.call(document.querySelectorAll('.toc a'));
-  var map={};links.forEach(function(a){map[a.getAttribute('href').slice(1)]=a});
-  var ids=Object.keys(map).concat(['diagnostico']);
-  if(!('IntersectionObserver' in window))return;
-  var io=new IntersectionObserver(function(es){
-    es.forEach(function(e){
-      if(!e.isIntersecting)return;
-      var id=e.target.id==='diagnostico'?'inicio':e.target.id;
-      links.forEach(function(a){a.classList.remove('on')});
-      if(map[id])map[id].classList.add('on');
-    });
-  },{rootMargin:'-40% 0px -55% 0px'});
-  ids.forEach(function(id){var el=document.getElementById(id);if(el)io.observe(el)});
-})();
-</script>
-<script>
-(function(){
+  var map={};links.forEach(function(a){var h=a.hash||a.getAttribute('href')||'';map[h.replace(/^.*#/,'')]=a});
+  if('IntersectionObserver' in window){
+    var io=new IntersectionObserver(function(es){
+      es.forEach(function(e){
+        if(!e.isIntersecting||!map[e.target.id])return;
+        links.forEach(function(a){a.classList.remove('on');a.removeAttribute('aria-current')});
+        map[e.target.id].classList.add('on');map[e.target.id].setAttribute('aria-current','true');
+      });
+    },{rootMargin:'-40% 0px -55% 0px'});
+    Object.keys(map).forEach(function(id){var el=document.getElementById(id);if(el)io.observe(el)});
+  }
+
+  function ga(){ if(window.gtag) window.gtag.apply(null, arguments); }
+
+  // Botões do formulário: repassa UTMs da página e mede o clique (não é início de formulário)
   var q=new URLSearchParams(location.search);
   document.querySelectorAll('a[data-form]').forEach(function(a){
     var u=new URL(a.href);
     q.forEach(function(v,k){ if(!u.searchParams.has(k)) u.searchParams.set(k,v); });
     a.href=u.toString();
+    a.addEventListener('click',function(){
+      var pos=a.getAttribute('data-cta')||'';
+      var offer=(pos==='essencial'||pos==='porto-start')?pos:'fluxo-privado';
+      ga('event','evaluation_click',{cta_location:pos,offer:offer,transport_type:'beacon'});
+      if(window.fbq && offer==='fluxo-privado') window.fbq('trackCustom','EvaluationClick',{cta_location:pos});
+    });
+  });
+
+  // Profundidade de rolagem: 25, 50, 75 e 90%, uma vez cada por carregamento
+  var marks=[25,50,75,90],sent={};
+  function onScroll(){
+    var h=document.documentElement,max=h.scrollHeight-h.clientHeight;
+    if(max<=0)return;
+    var pct=(h.scrollTop||document.body.scrollTop)/max*100;
+    marks.forEach(function(m){ if(pct>=m&&!sent[m]){sent[m]=1;ga('event','scroll_depth',{percent_scrolled:m});} });
+  }
+  window.addEventListener('scroll',onScroll,{passive:true});
+
+  // Aviso de cookies (informativo)
+  var c=document.getElementById('cookie');
+  try{ if(!localStorage.getItem('pg_cookie_ok')) c.hidden=false; }catch(e){ c.hidden=false; }
+  document.getElementById('cookie-ok').addEventListener('click',function(){
+    c.hidden=true; try{localStorage.setItem('pg_cookie_ok','1')}catch(e){}
   });
 })();
 </script>
